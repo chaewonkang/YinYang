@@ -11,8 +11,16 @@ const Clock = () => {
   });
 
   return (
-    <>
-      <SVG name="clock" height="56" color="" viewBox="0 0 30 55" />
+    <div className="clock_area">
+      <SVG
+        className="clock_bg"
+        name="clock"
+        height="91"
+        color=""
+        viewBox="0 0 152 91"
+        g={true}
+        transform={"translate(-1016.7 -141.722)"}
+      />
       <div className="clock">
         <div
           className="hour_hand"
@@ -32,132 +40,139 @@ const Clock = () => {
             transform: `rotateZ(${time.getSeconds() * 6}deg)`,
           }}
         />
-        <span className="twelve"></span>
-        <span className="one"></span>
-        <span className="two"></span>
-        <span className="three"></span>
-        <span className="four"></span>
-        <span className="five"></span>
-        <span className="six"></span>
-        <span className="seven"></span>
-        <span className="eight"></span>
-        <span className="nine"></span>
-        <span className="ten"></span>
-        <span className="eleven"></span>
+        {/* <span className="twelve">12</span>
+        <span className="one">1</span>
+        <span className="two">2</span>
+        <span className="three">3</span>
+        <span className="four">4</span>
+        <span className="five">5</span>
+        <span className="six">6</span>
+        <span className="seven">7</span>
+        <span className="eight">8</span>
+        <span className="nine">9</span>
+        <span className="ten">10</span>
+        <span className="eleven">11</span> */}
       </div>
       <style jsx>
         {`
-          .clock {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
+          .clock_area {
             position: relative;
-            top: 10%;
-            left: 60%;
+          }
+          .clock {
+            width: 152px;
+            height: 152px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
             font-size: 24px;
             color: #444;
             text-align: center;
           }
 
+          .clock_bg {
+            position: absolute;
+          }
+
           .hour_hand {
             position: absolute;
             width: 1px;
-            height: 60px;
-            background: #222;
-            top: 29.1%;
-            left: 49.6%;
+            height: 40px;
+            background: black;
+            top: 20.5%;
+            left: 53%;
             transform-origin: bottom;
           }
 
           .min_hand {
             position: absolute;
             width: 1px;
-            height: 80px;
+            height: 50px;
             background: black;
-            top: 22.8%;
-            left: 50%;
+            top: 14%;
+            left: 53%;
             transform-origin: bottom;
           }
 
           .sec_hand {
             position: absolute;
             width: 1px;
-            height: 118px;
+            height: 80px;
             background: black;
-            top: 10%;
-            left: 50%;
+            top: -5%;
+            left: 53%;
             transform-origin: bottom;
           }
 
           .clock span {
             position: absolute;
             font-family: "Source Sans Pro", sans-serif;
-            font-weight: 700;
+            font-size: 10px;
           }
 
           .twelve {
-            top: 10px;
-            left: 46%;
+            top: 0;
+            left: 50%;
           }
 
           .one {
-            top: 10%;
-            right: 26%;
-          }
-
-          .eleven {
-            top: 10%;
-            left: 26%;
+            top: 15%;
+            right: 30%;
           }
 
           .two {
-            top: 25%;
-            right: 10%;
+            top: 30%;
+            right: 15%;
           }
 
           .three {
-            right: 10px;
-            top: 46%;
+            top: 50%;
+            right: 0;
           }
 
           .four {
-            right: 30px;
-            top: 67%;
+            top: 70%;
+            right: 15%;
           }
 
           .five {
-            right: 78px;
-            top: 80%;
+            top: 85%;
+            right: 30%;
           }
 
           .six {
-            bottom: 10px;
+            bottom: 0;
             left: 50%;
           }
 
           .seven {
-            left: 80px;
-            top: 82%;
+            left: 30%;
+            top: 85%;
           }
 
           .eight {
-            left: 30px;
-            top: 67%;
+            left: 15%;
+            top: 70%;
           }
 
           .nine {
-            left: 10px;
-            top: 46%;
+            left: 0;
+            top: 50%;
           }
 
           .ten {
-            top: 25%;
-            left: 10%;
+            top: 30%;
+            left: 15%;
+          }
+
+          .eleven {
+            top: 15%;
+            left: 30%;
           }
         `}
       </style>
-    </>
+    </div>
   );
 };
 
