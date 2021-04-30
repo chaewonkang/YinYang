@@ -5,8 +5,8 @@ const IndexModule = ({ id }) => {
     <div className="module_container">
       <SVG name="book" height="56" color="" viewBox="0 0 30 55" />
       <div className="span">
-        <span>{id.length == 1 ? id : id.slice(0, 1)}</span>
-        <span>{id.length == 1 ? null : id.slice(1, 2)}</span>
+        <span>{id.length == 1 ? null : id.slice(0, 1)}</span>
+        <span>{id.length == 1 ? id.slice(0, 1) : id.slice(1, 2)}</span>
       </div>
       <style jsx>{`
         .module_container {
@@ -97,8 +97,8 @@ const IndexContainer = () => {
   return (
     <>
       <div className="index_container">
-        {items.map((item) => (
-          <IndexModule id={item.id}></IndexModule>
+        {items.map((item, key) => (
+          <IndexModule key={key} id={item.id}></IndexModule>
         ))}
       </div>
       <style jsx>

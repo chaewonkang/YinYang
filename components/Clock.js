@@ -100,7 +100,7 @@ const Clock = () => {
             width: 1px;
             height: 80px;
             background: black;
-            top: -5%;
+            top: -5.5%;
             left: 53%;
             transform-origin: bottom;
           }
