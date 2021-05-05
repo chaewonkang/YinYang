@@ -26,7 +26,15 @@ const Bookmark = () => (
         </p>
         <p>You can also buy our eggs on yolk.kr</p>
         <p>
-          Write<br></br>Instagram
+          <a href="mailto: yinyang.fig@gmail.com">Write</a>
+          <br></br>
+          <a
+            href="https://instagram.com/yinyang.fig"
+            rel="noopenner noreferrer"
+            target="_blank"
+          >
+            Instagram
+          </a>
         </p>
       </div>
     </div>
@@ -56,6 +64,16 @@ const Bookmark = () => (
         .text {
           position: absolute;
           top: 0;
+        }
+
+        a {
+          color: #000;
+        }
+
+        a:active,
+        a:focus,
+        a:visited {
+          color: #000;
         }
       `}
     </style>

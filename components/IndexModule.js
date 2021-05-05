@@ -98,7 +98,9 @@ const IndexContainer = () => {
     <>
       <div className="index_container">
         {items.map((item, key) => (
-          <IndexModule key={key} id={item.id}></IndexModule>
+          <a href="#menu03">
+            <IndexModule key={key} id={item.id}></IndexModule>
+          </a>
         ))}
       </div>
       <style jsx>
@@ -106,12 +108,22 @@ const IndexContainer = () => {
           .index_container {
             display: grid;
             grid-template-columns: repeat(${items.length}, 30px);
-            overflow: auto;
+            overflow-x: auto;
             height: 55px;
           }
 
           .index_container::-webkit-scrollbar {
             display: none;
+          }
+
+          a {
+            color: #000;
+          }
+
+          a:active,
+          a:focus,
+          a:visited {
+            color: #000;
           }
         `}
       </style>

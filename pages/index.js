@@ -6,8 +6,18 @@ import Content from "../components/Content";
 import ex1 from "../img/ex_1.jpg";
 import ex2 from "../img/ex_2.jpg";
 import ex3 from "../img/ex_3.jpg";
+import ex4 from "../img/ex_4.jpg";
+import ex5 from "../img/ex_5.jpg";
+import ex6 from "../img/ex_6.jpg";
 
-const items = [{ photo: ex1 }, { photo: ex2 }, { photo: ex3 }];
+const items = [
+  { photo: ex1 },
+  { photo: ex2 },
+  { photo: ex3 },
+  { photo: ex4 },
+  { photo: ex5 },
+  { photo: ex6 },
+];
 
 const Index = () => (
   <Layout>
@@ -36,7 +46,7 @@ const Index = () => (
 
       .container {
         display: grid;
-        grid-template-columns: repeat(5, 1fr) 100px 167px;
+        grid-template-columns: 1fr 100px 167px;
         grid-template-rows: 50px auto;
         row-gap: 20px;
         max-height: 90vh;
@@ -49,7 +59,16 @@ const Index = () => (
       }
 
       .content {
-        grid-column: 1 / 7;
+        width: calc(100vw - 399px);
+        top: 90px;
+        bottom: 0;
+        position: fixed;
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+
+      .content::-webkit-scrollbar {
+        display: none;
       }
 
       .clock {

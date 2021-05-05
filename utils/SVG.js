@@ -15,7 +15,7 @@ const SVG = ({ width, name, height, viewBox, g, transform }) => {
           <svg x="0px" y="0px" viewBox={viewBox} height={height} width={width}>
             <g id="Group_7" transform={transform}>
               <path
-                fill="none"
+                fill="#fff"
                 stroke="black"
                 d={svg[name]}
                 strokeWidth="0.8px"
@@ -27,7 +27,7 @@ const SVG = ({ width, name, height, viewBox, g, transform }) => {
         <>
           <svg x="0" y="0" viewBox={viewBox} height={height} width={width}>
             <path
-              fill="none"
+              fill="#fff"
               stroke="black"
               d={svg[name]}
               strokeWidth="0.8px"
