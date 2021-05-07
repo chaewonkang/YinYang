@@ -7,7 +7,16 @@ const svg = {
     "M1092.7,155.7c-38.8-29.7-75,0-75,0V232c40.1-20.7,75,0,75,0c40.1-20.7,75,0,75,0v-76.3C1128.9,125.9,1092.7,155.7,1092.7,155.7z",
 };
 
-const SVG = ({ width, name, height, viewBox, g, transform }) => {
+const SVG = ({
+  width,
+  name,
+  height,
+  viewBox,
+  g,
+  transform,
+  fill,
+  strokeWidth,
+}) => {
   return (
     <>
       {g ? (
@@ -15,10 +24,10 @@ const SVG = ({ width, name, height, viewBox, g, transform }) => {
           <svg x="0px" y="0px" viewBox={viewBox} height={height} width={width}>
             <g id="Group_7" transform={transform}>
               <path
-                fill="#fff"
+                fill={fill}
                 stroke="black"
                 d={svg[name]}
-                strokeWidth="0.8px"
+                strokeWidth={strokeWidth}
               />
             </g>
           </svg>
@@ -27,10 +36,10 @@ const SVG = ({ width, name, height, viewBox, g, transform }) => {
         <>
           <svg x="0" y="0" viewBox={viewBox} height={height} width={width}>
             <path
-              fill="#fff"
+              fill={fill}
               stroke="black"
               d={svg[name]}
-              strokeWidth="0.8px"
+              strokeWidth={strokeWidth}
             ></path>
           </svg>{" "}
         </>

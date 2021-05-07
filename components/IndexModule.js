@@ -3,7 +3,14 @@ import SVG from "../utils/SVG";
 const IndexModule = ({ id }) => {
   return (
     <div className="module_container">
-      <SVG name="book" height="56" color="" viewBox="0 0 30 55" />
+      <SVG
+        name="book"
+        height="56"
+        color=""
+        viewBox="0 0 30 55"
+        fill={"#fff"}
+        strokeWidth={"0.8px"}
+      />
       <div className="span">
         <span>{id.length == 1 ? null : id.slice(0, 1)}</span>
         <span>{id.length == 1 ? id.slice(0, 1) : id.slice(1, 2)}</span>
@@ -98,7 +105,7 @@ const IndexContainer = () => {
     <>
       <div className="index_container">
         {items.map((item, key) => (
-          <a href="#menu03">
+          <a key={key} href="#menu03">
             <IndexModule key={key} id={item.id}></IndexModule>
           </a>
         ))}

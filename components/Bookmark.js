@@ -1,43 +1,88 @@
 import SVG from "../utils/SVG";
 
-const Bookmark = () => (
+const Bookmark = ({ isVisible }) => (
   <>
-    {" "}
-    <div className="background">
-      <SVG
-        className="svg"
-        name="bookMark"
-        height="524"
-        color=""
-        viewBox="0 0 167 524"
-      ></SVG>
-      <div className="text">
-        <p>
-          YinYang is a design studio based in Seoul. We work as graphic designer
-          and frontend engineer. We are concerned with making image which can be
-          read like text. Our focus is on visual identities, website
-          design/development, exhibition design and book design. We are open to
-          independent or commissioned works. Please write us to discuss!
-        </p>
-        <p>
-          YinYang featured on… <br></br>GDFS <br></br>Typojanchi <br></br>
-          Shanghai Art Book Fair <br></br>
-          Award <br></br>Award <br></br>Award <br></br>
-        </p>
-        <p>You can also buy our eggs on yolk.kr</p>
-        <p>
-          <a href="mailto: yinyang.fig@gmail.com">Write</a>
-          <br></br>
-          <a
-            href="https://instagram.com/yinyang.fig"
-            rel="noopenner noreferrer"
-            target="_blank"
-          >
-            Instagram
-          </a>
-        </p>
+    {isVisible ? (
+      <div className="background">
+        {" "}
+        <SVG
+          className="svg"
+          name="bookMark"
+          height="524"
+          color=""
+          viewBox="0 0 167 524"
+          fill={"#fff"}
+          strokeWidth={"1px"}
+        ></SVG>
+        <div className="text">
+          <p>
+            YinYang is a design studio based in Seoul. We work as graphic
+            designer and frontend engineer. We are concerned with making image
+            which can be read like text. Our focus is on visual identities,
+            website design/development, exhibition design and book design. We
+            are open to independent or commissioned works. Please write us to
+            discuss!
+          </p>
+          <p>
+            YinYang featured on… <br></br>GDFS <br></br>Typojanchi <br></br>
+            Shanghai Art Book Fair <br></br>
+            Award <br></br>Award <br></br>Award <br></br>
+          </p>
+          <p>You can also buy our eggs on yolk.kr</p>
+          <p>
+            <a href="mailto: yinyang.fig@gmail.com">Write</a>
+            <br></br>
+            <a
+              href="https://instagram.com/yinyang.fig"
+              rel="noopenner noreferrer"
+              target="_blank"
+            >
+              Instagram
+            </a>
+          </p>
+        </div>
       </div>
-    </div>
+    ) : (
+      <div className="background">
+        <SVG
+          className="svg"
+          name="bookMark"
+          height="524"
+          color=""
+          viewBox="0 0 167 524"
+          fill={"#fff"}
+          strokeWidth={"1px"}
+        ></SVG>
+        <div className="text">
+          <p>
+            YinYang is a design studio based in Seoul. We work as graphic
+            designer and frontend engineer. We are concerned with making image
+            which can be read like text. Our focus is on visual identities,
+            website design/development, exhibition design and book design. We
+            are open to independent or commissioned works. Please write us to
+            discuss!
+          </p>
+          <p>
+            YinYang featured on… <br></br>GDFS <br></br>Typojanchi <br></br>
+            Shanghai Art Book Fair <br></br>
+            Award <br></br>Award <br></br>Award <br></br>
+          </p>
+          <p>You can also buy our eggs on yolk.kr</p>
+          <p>
+            <a href="mailto: yinyang.fig@gmail.com">Write</a>
+            <br></br>
+            <a
+              href="https://instagram.com/yinyang.fig"
+              rel="noopenner noreferrer"
+              target="_blank"
+            >
+              Instagram
+            </a>
+          </p>
+        </div>
+      </div>
+    )}
+
     <style jsx>
       {`
         p {
