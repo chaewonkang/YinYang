@@ -1,26 +1,14 @@
 import { useEffect, useState } from "react";
+
 import Layout from "../components/Layout";
 import Bookmark from "../components/Bookmark";
 import Clock from "../components/Clock";
 import IndexModule from "../components/IndexModule";
 import Content from "../components/Content";
-import ex1 from "../img/ex_1.jpg";
-import ex2 from "../img/ex_2.jpg";
-import ex3 from "../img/ex_3.jpg";
-import ex4 from "../img/ex_4.jpg";
-import ex5 from "../img/ex_5.jpg";
-import ex6 from "../img/ex_6.jpg";
+import { getContentfulData } from "../utils/api";
 
-const items = [
-  { photo: ex1 },
-  { photo: ex2 },
-  { photo: ex3 },
-  { photo: ex4 },
-  { photo: ex5 },
-  { photo: ex6 },
-];
-
-const Index = () => {
+export default function Index({ data }) {
+  const { workList } = data;
   const [isMobile, setIsMobile] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -29,7 +17,19 @@ const Index = () => {
     else setIsMobile(false);
   };
 
+  const openBM = () => {
+    if (window.innerWidth <= 768) setIsVisible(true);
+    else return;
+  };
+
+  const closeBM = () => {
+    if (window.innerWidth <= 768) setIsVisible(false);
+    else return;
+  };
+
   useEffect(() => {
+    console.log(data);
+
     if (window.innerWidth <= 768) setIsMobile(true);
 
     window.addEventListener("resize", handleResize);
@@ -42,25 +42,38 @@ const Index = () => {
     <Layout>
       <div className="container">
         <div className="index">
-          <IndexModule></IndexModule>
+          <IndexModule list={workList}></IndexModule>
         </div>
         <div className="content">
-          <Content items={items}></Content>
-          <Content items={items}></Content>
-          <Content items={items}></Content>
-          <Content items={items}></Content>
+          {workList.map((work, i) => (
+            <Content key={work.index} id={i} content={work} />
+          ))}
         </div>
-        <div className="clock" onClick={() => setIsVisible(true)}>
+        <div
+          className="clock"
+          onMouseDown={() => openBM()}
+          onMouseLeave={() => closeBM()}
+        >
           <Clock isMobile={isMobile}></Clock>
         </div>
-        <div className="bookmark" isVisible={isVisible}>
-          <Bookmark></Bookmark>
+        <div className="bookmark">
+          <Bookmark isVisible={isVisible}></Bookmark>
         </div>
       </div>
       <style jsx global>{`
-        * {
-          font-family: "Helvetica", sans-serif;
+        @font-face {
+          font-family: "customFont";
+          font-style: italic;
+          font-weight: 400;
+          src: url("/fonts/JolyRegular.woff") format("woff");
+        }
+        html,
+        body {
+          width: 100%;
+          height: 100%;
+          padding: 0;
           margin: 0;
+          font-family: "customFont";
         }
 
         .container {
@@ -95,6 +108,11 @@ const Index = () => {
           z-index: 100;
         }
 
+        .bookmark {
+          grid-column: 8 / 9;
+          padding-left: 20px;
+        }
+
         @media (max-width: 1192px) {
           .clock {
             grid-column: 8 / 9;
@@ -122,18 +140,28 @@ const Index = () => {
           .container {
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 50px auto;
-            row-gap: 20px;
+            grid-template-rows: 60px auto;
+            row-gap: 10px;
             max-height: 90vh;
+            overflow-y: hidden;
+            overflow-x: hidden;
           }
 
           .clock {
             margin-right: 20px;
-            cursor: point;
+            cursor: pointer;
+            width: calc(100vw - 40px);
+            display: flex;
+            justify-content: flex-end;
+            z-index: 10000;
           }
 
           .bookmark {
-            display: none;
+            width: calc(100vw - 40px);
+            display: flex;
+            justify-content: flex-end;
+            grid-column: 8 / 9;
+            padding-left: 0;
           }
 
           .content {
@@ -146,14 +174,19 @@ const Index = () => {
             padding-top: 50px;
           }
         }
-
-        .bookmark {
-          grid-column: 8 / 9;
-          padding-left: 20px;
-        }
       `}</style>
     </Layout>
   );
-};
+}
 
-export default Index;
+export async function getStaticProps() {
+  const { workList } = await getContentfulData();
+
+  return {
+    props: {
+      data: {
+        workList,
+      },
+    },
+  };
+}

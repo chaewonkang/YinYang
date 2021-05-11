@@ -1,6 +1,7 @@
 import SVG from "../utils/SVG";
 
 const IndexModule = ({ id }) => {
+  const idx = id.toString();
   return (
     <div className="module_container">
       <SVG
@@ -12,8 +13,8 @@ const IndexModule = ({ id }) => {
         strokeWidth={"0.8px"}
       />
       <div className="span">
-        <span>{id.length == 1 ? null : id.slice(0, 1)}</span>
-        <span>{id.length == 1 ? id.slice(0, 1) : id.slice(1, 2)}</span>
+        <span>{idx.length == 1 ? null : idx.slice(0, 1)}</span>
+        <span>{idx.length == 1 ? idx.slice(0, 1) : idx.slice(1, 2)}</span>
       </div>
       <style jsx>{`
         .module_container {
@@ -43,70 +44,13 @@ const IndexModule = ({ id }) => {
   );
 };
 
-const IndexContainer = () => {
-  const items = [
-    { id: "1" },
-    { id: "2" },
-    { id: "3" },
-    { id: "4" },
-    { id: "5" },
-    { id: "6" },
-    { id: "7" },
-    { id: "8" },
-    { id: "9" },
-    { id: "10" },
-    { id: "11" },
-    { id: "12" },
-    { id: "13" },
-    { id: "14" },
-    { id: "15" },
-    { id: "16" },
-    { id: "17" },
-    { id: "18" },
-    { id: "19" },
-    { id: "20" },
-    { id: "21" },
-    { id: "22" },
-    { id: "23" },
-    { id: "24" },
-    { id: "25" },
-    { id: "26" },
-    { id: "27" },
-    { id: "28" },
-    { id: "29" },
-    { id: "30" },
-    { id: "31" },
-    { id: "32" },
-    { id: "33" },
-    { id: "34" },
-    { id: "35" },
-    { id: "36" },
-    { id: "37" },
-    { id: "38" },
-    { id: "39" },
-    { id: "40" },
-    { id: "41" },
-    { id: "29" },
-    { id: "30" },
-    { id: "31" },
-    { id: "32" },
-    { id: "33" },
-    { id: "34" },
-    { id: "35" },
-    { id: "36" },
-    { id: "37" },
-    { id: "38" },
-    { id: "39" },
-    { id: "40" },
-    { id: "41" },
-  ];
-
+const IndexContainer = ({ list }) => {
   return (
     <>
       <div className="index_container">
-        {items.map((item, key) => (
-          <a key={key} href="#menu03">
-            <IndexModule key={key} id={item.id}></IndexModule>
+        {list.map((item, i) => (
+          <a key={i} href={`#work_${i}`}>
+            <IndexModule key={i} id={i}></IndexModule>
           </a>
         ))}
       </div>
@@ -114,7 +58,7 @@ const IndexContainer = () => {
         {`
           .index_container {
             display: grid;
-            grid-template-columns: repeat(${items.length}, 30px);
+            grid-template-columns: repeat(${list.length}, 30px);
             overflow-x: auto;
             height: 55px;
           }

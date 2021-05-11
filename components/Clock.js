@@ -22,7 +22,7 @@ const Clock = ({ isMobile }) => {
             viewBox="0 0 152 91"
             g={true}
             transform={"translate(-1016.7 -141.722)"}
-            fill={"none"}
+            fill={"#fff"}
             strokeWidth={"2px"}
           />
           <div className="clock">
@@ -112,7 +112,7 @@ const Clock = ({ isMobile }) => {
             height: 40px;
             background: black;
             top: 21%;
-            left: 53%;
+            left: 50%;
             transform-origin: bottom;
           }
 
@@ -122,7 +122,7 @@ const Clock = ({ isMobile }) => {
             height: 50px;
             background: black;
             top: 14%;
-            left: 53%;
+            left: 50%;
             transform-origin: bottom;
           }
 
@@ -132,18 +132,27 @@ const Clock = ({ isMobile }) => {
             height: 80px;
             background: black;
             top: -5.5%;
-            left: 53%;
+            left: 50%;
             transform-origin: bottom;
           }
 
           @media (max-width: 768px) {
-            .clock_area {
-              cursor: pointer;
+            .clock {
+              width: 152px;
+              height: 152px;
+              border-radius: 50%;
+              position: absolute;
+              top: 55%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 24px;
+              color: #444;
+              text-align: center;
             }
 
             .hour_hand {
               height: 20px;
-              top: 37%;
+              top: 36%;
               left: 50%;
             }
 
