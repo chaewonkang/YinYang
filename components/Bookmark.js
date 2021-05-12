@@ -1,19 +1,11 @@
 import SVG from "../utils/SVG";
+import bookMark from "../img/bookmark.png";
 
 const Bookmark = ({ isVisible }) => (
   <>
     {isVisible ? (
-      <div className="background">
-        {" "}
-        <SVG
-          className="svg"
-          name="bookMark"
-          height="524"
-          color=""
-          viewBox="0 0 167 524"
-          fill={"#fff"}
-          strokeWidth={"1px"}
-        ></SVG>
+      <div className="mobileBackground">
+        <img src={bookMark}></img>
         <div className="text">
           <p>
             YinYang is a design studio based in Seoul. We work as graphic
@@ -82,7 +74,6 @@ const Bookmark = ({ isVisible }) => (
         </div>
       </div>
     )}
-
     <style jsx>
       {`
         p {
@@ -91,7 +82,6 @@ const Bookmark = ({ isVisible }) => (
           margin: 0;
           padding: 5px 15px 5px 5px;
           line-height: 15px;
-          font-family: "Helvetica", sans-serif;
           overflow: auto;
         }
 
@@ -100,10 +90,6 @@ const Bookmark = ({ isVisible }) => (
           position: relative;
           height: 520;
           overflow: ;
-        }
-
-        .svg {
-          position: absolute;
         }
 
         .text {
@@ -119,6 +105,31 @@ const Bookmark = ({ isVisible }) => (
         a:focus,
         a:visited {
           color: #000;
+        }
+
+        @media screen and (max-width: 768px) {
+          .background {
+            display: none;
+          }
+
+          .mobileBackground {
+            position: fixed;
+            top: 50;
+            left: 20;
+            z-index: 1000;
+            width: calc(100vw - 40px);
+          }
+
+          img {
+            width: calc(100vw - 40px);
+          }
+
+          .mobileBackground .text {
+            position: absolute;
+            top: 0;
+            overflow: auto;
+            z-index: 1000;
+          }
         }
       `}
     </style>

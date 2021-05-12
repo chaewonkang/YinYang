@@ -1,10 +1,10 @@
 import Slider from "./Slider";
 
-const Content = ({ items, id }) => {
+const Content = ({ id, content }) => {
   return (
     <>
       <div id={id} className="content_container">
-        <Slider id={id} items={items}></Slider>
+        <Slider id={id} items={content}></Slider>
       </div>
       <style jsx>
         {`

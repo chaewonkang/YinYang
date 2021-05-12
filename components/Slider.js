@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-import RightArrow from "../img/arrow2x.png";
-import LeftArrow from "../img/arrow2x_left.png";
+import RightArrow from "../img/arrow.png";
+import LeftArrow from "../img/arrow_left.png";
 
-export default function Slider({ items }) {
-  const TOTAL_SLIDES = items.length;
+export default function Slider({ items, id }) {
+  const TOTAL_SLIDES = items.imgList.length;
   const [currentSlide, setCurrentSlide] = useState(1);
   const slideRef = useRef(null);
+
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(1);
@@ -13,6 +14,7 @@ export default function Slider({ items }) {
       setCurrentSlide(currentSlide + 1);
     }
   };
+
   const prevSlide = () => {
     if (currentSlide === 1) {
       setCurrentSlide(TOTAL_SLIDES);
@@ -28,11 +30,11 @@ export default function Slider({ items }) {
 
   return (
     <>
-      <div className="slider_wrapper">
+      <div className="slider_wrapper" id={`work_${id}`}>
         <div className="slider_container">
           <div className="slide" ref={slideRef}>
-            {items.map((item, key) => (
-              <img key={key} className="img" src={item.photo} />
+            {items.imgList.map((item, key) => (
+              <img key={key} className="img" src={item.imgUrl.url} />
             ))}
           </div>
         </div>
@@ -47,10 +49,10 @@ export default function Slider({ items }) {
       </div>
       <div className="content_info">
         <div className="content_info_text">
-          <div className="title">Axe and Dummyheads,</div>
-          <div className="where">Insa Art Space,</div>
-          <div className="when">2020</div>
-          <div className="category">[Exhibition Identity, Printed Matter]</div>
+          <div className="title">{items.title},</div>
+          <div className="where">{items.client},</div>
+          <div className="when">{items.year}</div>
+          <div className="category">[{items.category}]</div>
         </div>
         <div className="pages">
           <span>
@@ -76,9 +78,10 @@ export default function Slider({ items }) {
         }
 
         .slide {
+          position: relative;
+
           display: flex;
           width: 100%;
-          position: relative;
           jusitfy-content: center;
           align-items: center;
         }
@@ -88,7 +91,7 @@ export default function Slider({ items }) {
           jusitfy-self: center;
           align-self: center;
           object-fit: cover;
-          width: 100%;
+          width: inherit;
         }
 
         .arrows_and_number_container {
@@ -124,6 +127,7 @@ export default function Slider({ items }) {
         .navigate_right_button > img {
           display: none;
         }
+
         .navigate_left_button :hover > img,
         .navigate_right_button:hover > img {
           display: block;
@@ -136,10 +140,12 @@ export default function Slider({ items }) {
           height: 100%;
         }
 
-        button: hover {
+        button: hover, button: active {
           transition: all 0.3s ease-in-out;
           color: #000;
-        }
+		}
+
+
 
         .slider_container {
           display: flex;
@@ -183,6 +189,19 @@ export default function Slider({ items }) {
         .pages {
           text-align: right;
           font-size: 11px;
+        }
+
+        @media screen and (max-width: 768px) {
+          .title,
+          .where,
+          .when {
+            font-size: 16px;
+          }
+
+          .category {
+            display: block;
+            margin-top: 0.2em;
+          }
         }
       `}</style>
     </>
