@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import * as dom from "./Dom";
+import { real } from "./Mechanism";
 import SVG from "../utils/SVG";
 
-const Clock = ({ isMobile }) => {
+export default class Clock = ({ isMobile }) => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -184,5 +186,3 @@ const Clock = ({ isMobile }) => {
     </div>
   );
 };
-
-export default Clock;

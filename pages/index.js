@@ -72,6 +72,7 @@ export default function Index({ data }) {
           padding: 0;
           margin: 0;
           font-family: "customFont";
+          overflow-y: hidden;
         }
 
         .container {
@@ -79,7 +80,7 @@ export default function Index({ data }) {
           grid-template-columns: 1fr 100px 167px;
           grid-template-rows: 50px auto;
           row-gap: 20px;
-          max-height: 90vh;
+          max-height: 100vh;
         }
 
         .index {
