@@ -7,7 +7,7 @@ const IndexModule = ({ id }) => {
       <div className="index_module">
         <SVG
           name="book"
-          height="56"
+          height="56.5"
           color=""
           viewBox="0 0 30 55"
           fill={"#fff"}
@@ -21,10 +21,18 @@ const IndexModule = ({ id }) => {
       <style jsx>{`
         .module_container {
           position: relative;
-          height: 56px;
+          height: 50px;
           overflow-y: hidden;
           display: table;
           border-collapse: collapse;
+        }
+
+        .index_module {
+          height: 50px;
+          position: relative;
+          overflow-x: hidden;
+          overflow-y: hidden;
+          padding-bottom: 5px;
         }
 
         .span {
@@ -32,18 +40,6 @@ const IndexModule = ({ id }) => {
           position: absolute;
           bottom: 5px;
           width: 100%;
-        }
-
-        .index_module {
-          potision: relative;
-          margin-left: -1px;
-          overflow-x: hidden;
-          overflow-y: hidden;
-        }
-
-        .index_module:nth-child(1) {
-          potision: relative;
-          margin-left: 0px;
         }
 
         span:nth-child(1) {
@@ -79,6 +75,7 @@ const IndexContainer = ({ list }) => {
             grid-template-columns: repeat(${list.length}, 30px);
             overflow-x: auto;
             height: 55px;
+            overflow-y: hidden;
           }
 
           .index_container::-webkit-scrollbar {

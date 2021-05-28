@@ -5,7 +5,6 @@ const client = require("contentful").createClient({
 
 export async function getContentfulData() {
   const { items } = await client.getEntries();
-  console.log(items);
 
   const workList = items
     .sort((a, b) => {
@@ -16,7 +15,6 @@ export async function getContentfulData() {
     .map((item, i) => {
       const index = i + 1;
       const { title, client, year, category } = item.fields;
-      console.log(title);
       const imgList = item.fields.images.map((image) => ({
         imgUrl: image.fields.file,
       }));
