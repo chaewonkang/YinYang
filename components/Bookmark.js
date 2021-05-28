@@ -76,6 +76,26 @@ const Bookmark = ({ isVisible }) => (
     )}
     <style jsx>
       {`
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideIn {
+          0% {
+            transform: translateY(-100%);
+            opacity: 0;
+          }
+          100% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
         p {
           font-size: 13px;
           word-break: keep-all;
@@ -83,13 +103,14 @@ const Bookmark = ({ isVisible }) => (
           padding: 5px 15px 5px 5px;
           line-height: 15px;
           overflow: auto;
+          animation: 2s ease-out 0s 1 fadeIn;
         }
 
         .background {
           margin-right: 20px;
           position: relative;
           height: 520;
-          overflow: ;
+          animation: 1s ease-out 0s 1 fadeIn;
         }
 
         .text {
@@ -118,6 +139,7 @@ const Bookmark = ({ isVisible }) => (
             left: 20;
             z-index: 10;
             width: calc(100vw - 40px);
+            animation: 1s ease-out 0s 1 fadeIn;
           }
 
           img {
@@ -129,6 +151,7 @@ const Bookmark = ({ isVisible }) => (
             top: 0;
             overflow: auto;
             z-index: 10;
+            animation: 1.5s ease-out 0s 1 fadeIn;
           }
         }
       `}

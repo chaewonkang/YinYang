@@ -78,11 +78,32 @@ export default function Slider({ items, id, isMobile }) {
       </div>
 
       <style jsx>{`
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideIn {
+          0% {
+            transform: translateY(-100%);
+            opacity: 0;
+          }
+          100% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
         .slider_wrapper {
           position: relative;
           overflow-x: hidden;
           height: inherit;
           cursor: pointer;
+          animation: 1s ease-out 0s 1 fadeIn;
         }
 
         .slider_container {
@@ -224,6 +245,7 @@ export default function Slider({ items, id, isMobile }) {
             grid-template-columns: 1fr 1fr;
             position: absolute;
             top: 0;
+            overflow-x: hidden;
             overflow-y: hidden;
             height: 100%;
           }
