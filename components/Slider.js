@@ -77,7 +77,6 @@ export default function Slider({ items, id }) {
 
         .slide {
           position: relative;
-
           display: flex;
           width: 100%;
           jusitfy-content: center;
@@ -131,7 +130,6 @@ export default function Slider({ items, id }) {
         }
 
         button {
-          //    all: unset;
           color: #000;
           width: 100px;
           height: 100%;
@@ -184,6 +182,8 @@ export default function Slider({ items, id }) {
         .pages {
           text-align: right;
           font-size: 11px;
+          position: relative;
+          top: 2px;
         }
 
         @media screen and (max-width: 768px) {
@@ -196,6 +196,24 @@ export default function Slider({ items, id }) {
           .category {
             display: block;
             margin-top: 0.2em;
+          }
+
+          .navigate_left_button > img,
+          .navigate_right_button > img {
+            width: 0;
+          }
+
+          .navigate_left_button > img,
+          .navigate_right_button > img {
+            display: block;
+          }
+
+          .navigate_left_button,
+          .navigate_right_button {
+            height: 100%;
+            z-index: 10;
+            display: flex;
+            align-items: center;
           }
         }
       `}</style>

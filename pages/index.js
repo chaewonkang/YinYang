@@ -67,6 +67,7 @@ export default function Index({ data }) {
           font-weight: 400;
           src: url("/fonts/JolyRegular.woff") format("woff");
         }
+
         html,
         body {
           width: 100%;
@@ -74,6 +75,7 @@ export default function Index({ data }) {
           padding: 0;
           margin: 0;
           font-family: "customFont";
+          overflow-y: hidden;
         }
 
         .container {

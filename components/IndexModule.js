@@ -4,14 +4,16 @@ const IndexModule = ({ id }) => {
   const idx = id.toString();
   return (
     <div className="module_container">
-      <SVG
-        name="book"
-        height="56"
-        color=""
-        viewBox="0 0 30 55"
-        fill={"#fff"}
-        strokeWidth={"0.8px"}
-      />
+      <div className="index_module">
+        <SVG
+          name="book"
+          height="56"
+          color=""
+          viewBox="0 0 30 55"
+          fill={"#fff"}
+          strokeWidth={"0.8px"}
+        />
+      </div>
       <div className="span">
         <span>{idx.length == 1 ? null : idx.slice(0, 1)}</span>
         <span>{idx.length == 1 ? idx.slice(0, 1) : idx.slice(1, 2)}</span>
@@ -20,12 +22,25 @@ const IndexModule = ({ id }) => {
         .module_container {
           position: relative;
           height: 56px;
+          overflow-y: hidden;
         }
         .span {
           z-index: 2;
           position: absolute;
           bottom: 5px;
           width: 100%;
+        }
+
+        .index_module {
+          potision: relative;
+          margin-left: -1px;
+          overflow-x: hidden;
+          overflow-y: hidden;
+        }
+
+        .index_module:nth-child(1) {
+          potision: relative;
+          margin-left: 0px;
         }
 
         span:nth-child(1) {
