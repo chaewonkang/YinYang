@@ -24,6 +24,7 @@ const IndexModule = ({ id }) => {
           height: 56px;
           overflow-y: hidden;
         }
+
         .span {
           z-index: 2;
           position: absolute;
