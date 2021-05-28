@@ -23,6 +23,8 @@ const IndexModule = ({ id }) => {
           position: relative;
           height: 56px;
           overflow-y: hidden;
+          display: table;
+          border-collapse: collapse;
         }
 
         .span {
