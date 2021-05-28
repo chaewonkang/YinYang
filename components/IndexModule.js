@@ -63,7 +63,7 @@ const IndexContainer = ({ list }) => {
     <>
       <div className="index_container">
         {list.map((item, i) => (
-          <a key={i} href={`#work_${i}`}>
+          <a key={i} href={`#${i}`}>
             <IndexModule key={i} id={i}></IndexModule>
           </a>
         ))}
@@ -74,7 +74,7 @@ const IndexContainer = ({ list }) => {
             display: grid;
             grid-template-columns: repeat(${list.length}, 30px);
             overflow-x: auto;
-            height: 55px;
+            height: 56.5px;
             overflow-y: hidden;
           }
 

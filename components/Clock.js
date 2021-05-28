@@ -8,7 +8,7 @@ const Clock = ({ isMobile }) => {
     window.setInterval(() => {
       setTime(new Date());
     }, 1000);
-  });
+  }, []);
 
   return (
     <div className="clock_area">

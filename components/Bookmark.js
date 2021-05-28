@@ -116,7 +116,7 @@ const Bookmark = ({ isVisible }) => (
             position: fixed;
             top: 50;
             left: 20;
-            z-index: 1000;
+            z-index: 10;
             width: calc(100vw - 40px);
           }
 
@@ -128,7 +128,7 @@ const Bookmark = ({ isVisible }) => (
             position: absolute;
             top: 0;
             overflow: auto;
-            z-index: 1000;
+            z-index: 10;
           }
         }
       `}
