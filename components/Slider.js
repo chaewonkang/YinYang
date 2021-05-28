@@ -37,10 +37,10 @@ export default function Slider({ items, id }) {
           </div>
         </div>
         <div className="arrows_and_number_container">
-          <div className="navigate_left_button" onClick={prevSlide}>
+          <div className="navigate_left_button" onMouseDown={() => prevSlide()}>
             <img src={LeftArrow} width="152px"></img>
           </div>
-          <div className="navigate_right_button" onClick={nextSlide}>
+          <div className="navigate_right_button" onMouseDown={() => nextSlide}>
             <img src={RightArrow} width="152px"></img>
           </div>
         </div>
