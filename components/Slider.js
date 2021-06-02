@@ -1,8 +1,15 @@
 import { useState, useRef, useEffect } from "react";
+<<<<<<< HEAD
 import RightArrow from "../img/arrow.png";
 import LeftArrow from "../img/arrow_left.png";
+=======
+import RightArrow from "../img/arrow2x.png";
+import LeftArrow from "../img/arrow2x_left.png";
+import MobileRightArrow from "../img/mobileRight.png";
+import MobileLeftArrow from "../img/mobileLeft.png";
+>>>>>>> 0ae274a6613cb8e95bd8857a4d02f0364fcbe31e
 
-export default function Slider({ items, id }) {
+export default function Slider({ items, id, isMobile }) {
   const TOTAL_SLIDES = items.imgList.length;
   const [currentSlide, setCurrentSlide] = useState(1);
   const slideRef = useRef(null);
@@ -38,14 +45,27 @@ export default function Slider({ items, id }) {
             ))}
           </div>
         </div>
-        <div className="arrows_and_number_container">
-          <div className="navigate_left_button" onClick={prevSlide}>
-            <img src={LeftArrow} width="152px"></img>
+        {isMobile ? (
+          <div className="mobile_arrows_and_number_container">
+            <div className="mobile_navigate_left_button" onClick={prevSlide}>
+              {" "}
+              <img src={MobileLeftArrow}></img>
+            </div>
+            <div className="mobile_navigate_right_button" onClick={nextSlide}>
+              {" "}
+              <img src={MobileRightArrow}></img>
+            </div>
           </div>
-          <div className="navigate_right_button" onClick={nextSlide}>
-            <img src={RightArrow} width="152px"></img>
+        ) : (
+          <div className="arrows_and_number_container">
+            <div className="navigate_left_button" onClick={prevSlide}>
+              <img src={LeftArrow} width="152px"></img>
+            </div>
+            <div className="navigate_right_button" onClick={nextSlide}>
+              <img src={RightArrow} width="152px"></img>
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <div className="content_info">
         <div className="content_info_text">
@@ -54,19 +74,42 @@ export default function Slider({ items, id }) {
           <div className="when">{items.year}</div>
           <div className="category">[{items.category}]</div>
         </div>
-        <div className="pages">
-          <span>
-            {currentSlide} / {TOTAL_SLIDES}
-          </span>
-        </div>
+        {TOTAL_SLIDES > 1 ? (
+          <div className="pages">
+            <span>
+              {currentSlide} / {TOTAL_SLIDES}
+            </span>
+          </div>
+        ) : null}
       </div>
 
       <style jsx>{`
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideIn {
+          0% {
+            transform: translateY(-100%);
+            opacity: 0;
+          }
+          100% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
         .slider_wrapper {
           position: relative;
           overflow-x: hidden;
           height: inherit;
           cursor: pointer;
+          animation: 1s ease-out 0s 1 fadeIn;
         }
 
         .slider_container {
@@ -79,7 +122,6 @@ export default function Slider({ items, id }) {
 
         .slide {
           position: relative;
-
           display: flex;
           width: 100%;
           jusitfy-content: center;
@@ -106,9 +148,10 @@ export default function Slider({ items, id }) {
         .navigate_left_button,
         .navigate_right_button {
           height: 100%;
-          z-index: 10;
+          z-index: 1000;
           display: flex;
           align-items: center;
+          z-index: 10000;
         }
 
         .navigate_left_button {
@@ -126,6 +169,7 @@ export default function Slider({ items, id }) {
         .navigate_left_button > img,
         .navigate_right_button > img {
           display: none;
+          z-index: 10000;
         }
 
         .navigate_left_button :hover > img,
@@ -134,7 +178,6 @@ export default function Slider({ items, id }) {
         }
 
         button {
-          //    all: unset;
           color: #000;
           width: 100px;
           height: 100%;
@@ -156,7 +199,6 @@ export default function Slider({ items, id }) {
           right: 0;
           top: 0px;
           text-align: right;
-          z-index: 3;
         }
 
         .content_container {
@@ -189,6 +231,8 @@ export default function Slider({ items, id }) {
         .pages {
           text-align: right;
           font-size: 11px;
+          position: relative;
+          top: 2px;
         }
 
         @media screen and (max-width: 768px) {
@@ -201,6 +245,33 @@ export default function Slider({ items, id }) {
           .category {
             display: block;
             margin-top: 0.2em;
+          }
+
+          .mobile_arrows_and_number_container {
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1fr 1fr;
+            position: absolute;
+            top: 0;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            height: 100%;
+          }
+
+          .mobile_navigate_left_button,
+          .mobile_navigate_right_button {
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            width: 100px;
+          }
+
+          .navigate_left_button > img,
+          .navigate_right_button > img {
+            display: block;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
           }
         }
       `}</style>

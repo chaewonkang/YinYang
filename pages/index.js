@@ -44,7 +44,12 @@ export default function Index({ data }) {
         </div>
         <div className="content">
           {workList.map((work, i) => (
-            <Content key={work.index} id={i} content={work} />
+            <Content
+              key={work.index}
+              id={i}
+              content={work}
+              isMobile={isMobile}
+            />
           ))}
         </div>
         <div
@@ -65,6 +70,7 @@ export default function Index({ data }) {
           font-weight: 400;
           src: url("/fonts/JolyRegular.woff") format("woff");
         }
+
         html,
         body {
           width: 100%;
@@ -78,15 +84,20 @@ export default function Index({ data }) {
         .container {
           display: grid;
           grid-template-columns: 1fr 100px 167px;
-          grid-template-rows: 50px auto;
+          grid-template-rows: 56px auto;
           row-gap: 20px;
+<<<<<<< HEAD
           max-height: 100vh;
+=======
+          overflow-y: hidden;
+>>>>>>> 0ae274a6613cb8e95bd8857a4d02f0364fcbe31e
         }
 
         .index {
           grid-column: 1 / 9;
           grid-row: 1 / 2;
-          z-index: 10;
+          z-index: 1000;
+          overflow-y: hidden;
         }
 
         .content {
@@ -120,7 +131,7 @@ export default function Index({ data }) {
           .container {
             display: grid;
             grid-template-columns: 1fr 100px 167px;
-            grid-template-rows: 50px auto;
+            grid-template-rows: 60px auto;
             row-gap: 20px;
             max-height: 90vh;
           }
@@ -152,7 +163,7 @@ export default function Index({ data }) {
             width: calc(100vw - 40px);
             display: flex;
             justify-content: flex-end;
-            z-index: 10000;
+            z-index: 100;
           }
 
           .bookmark {

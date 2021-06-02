@@ -10,7 +10,7 @@ const Clock = ({ isMobile }) => {
     window.setInterval(() => {
       setTime(new Date());
     }, 1000);
-  });
+  }, []);
 
   return (
     <div className="clock_area">
@@ -84,11 +84,32 @@ const Clock = ({ isMobile }) => {
       )}
       <style jsx>
         {`
+          @keyframes fadeIn {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+
+          @keyframes slideIn {
+            0% {
+              transform: translateY(-100%);
+              opacity: 0;
+            }
+            100% {
+              transform: translateY(0);
+              opacity: 1;
+            }
+          }
+
           .clock_area {
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: 1s ease-out 0s 1 fadeIn;
           }
 
           .clock {
@@ -102,6 +123,7 @@ const Clock = ({ isMobile }) => {
             font-size: 24px;
             color: #444;
             text-align: center;
+            animation: 1s ease-out 0s 1 fadeIn;
           }
 
           .clock_bg {
@@ -116,6 +138,7 @@ const Clock = ({ isMobile }) => {
             top: 21%;
             left: 50%;
             transform-origin: bottom;
+            animation: 1s ease-out 0s 1 fadeIn;
           }
 
           .min_hand {
@@ -126,6 +149,7 @@ const Clock = ({ isMobile }) => {
             top: 14%;
             left: 50%;
             transform-origin: bottom;
+            animation: 1s ease-out 0s 1 fadeIn;
           }
 
           .sec_hand {
@@ -136,6 +160,7 @@ const Clock = ({ isMobile }) => {
             top: -5.5%;
             left: 50%;
             transform-origin: bottom;
+            animation: 1s ease-out 0s 1 fadeIn;
           }
 
           @media (max-width: 768px) {
