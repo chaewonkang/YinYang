@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import Layout from "../components/Layout";
-import Bookmark from "../components/Bookmark";
-import Clock from "../components/Clock";
-import IndexModule from "../components/IndexModule";
-import Content from "../components/Content";
-import { getContentfulData } from "../utils/api";
+import Layout from '../components/Layout';
+import Bookmark from '../components/Bookmark';
+import Clock from '../components/Clock';
+import IndexModule from '../components/IndexModule';
+import Content from '../components/Content';
+import { getContentfulData } from '../utils/api';
+
+import spinner from '../img/splash.gif';
 
 export default function Index({ data }) {
   const { workList } = data;
   const [isMobile, setIsMobile] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleResize = () => {
     if (window.innerWidth <= 768) setIsMobile(true);
@@ -28,21 +31,38 @@ export default function Index({ data }) {
   };
 
   useEffect(() => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+
     if (window.innerWidth <= 768) setIsMobile(true);
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
+  if (loading)
+    return (
+      <Layout>
+        <div className='spinner_container'>
+          <div>
+            <img src={spinner} width='20%'></img>
+          </div>
+        </div>
+      </Layout>
+    );
+
   return (
     <Layout>
-      <div className="container">
-        <div className="index">
+      <div className='container'>
+        <div className='index'>
           <IndexModule list={workList}></IndexModule>
         </div>
-        <div className="content">
+        <div className='content'>
           {workList.map((work, i) => (
             <Content
               key={work.index}
@@ -53,22 +73,22 @@ export default function Index({ data }) {
           ))}
         </div>
         <div
-          className="clock"
+          className='clock'
           onMouseDown={() => openBM()}
           onMouseLeave={() => closeBM()}
         >
           <Clock isMobile={isMobile}></Clock>
         </div>
-        <div className="bookmark">
+        <div className='bookmark'>
           <Bookmark isVisible={isVisible}></Bookmark>
         </div>
       </div>
       <style jsx global>{`
         @font-face {
-          font-family: "customFont";
+          font-family: 'customFont';
           font-style: italic;
           font-weight: 400;
-          src: url("/fonts/JolyRegular.woff") format("woff");
+          src: url('./fonts/JolyRegular.woff') format('woff');
         }
 
         html,
@@ -77,7 +97,7 @@ export default function Index({ data }) {
           height: 100%;
           padding: 0;
           margin: 0;
-          font-family: "customFont";
+          font-family: 'customFont';
           overflow-y: hidden;
         }
 
@@ -87,6 +107,17 @@ export default function Index({ data }) {
           grid-template-rows: 56px auto;
           row-gap: 20px;
           overflow-y: hidden;
+        }
+
+        .spinner_container {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+        }
+
+        .spinner_container div {
+          justify-self: center;
+          align-self: center;
         }
 
         .index {

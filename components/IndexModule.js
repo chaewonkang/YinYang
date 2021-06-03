@@ -1,6 +1,6 @@
-import SVG from "../utils/SVG";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import SVG from '../utils/SVG';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 
 const IndexModule = ({ id }) => {
   const idx = id.toString();
@@ -13,29 +13,29 @@ const IndexModule = ({ id }) => {
   }, [router.pathname]);
 
   return (
-    <div className="module_container">
-      <div className="index_module">
+    <div className='module_container'>
+      <div className='index_module'>
         {bgBlack ? (
           <SVG
-            name="book"
-            height="56.5"
-            color=""
-            viewBox="0 0 30 55"
-            fill={"#000"}
-            strokeWidth={"0.8px"}
+            name='book'
+            height='52'
+            color=''
+            viewBox='0 0  52'
+            fill={'#000'}
+            strokeWidth={'0.8px'}
           />
         ) : (
           <SVG
-            name="book"
-            height="56.5"
-            color=""
-            viewBox="0 0 30 55"
-            fill={"#fff"}
-            strokeWidth={"0.8px"}
+            name='book'
+            height='52'
+            color=''
+            viewBox='0 0 30 52'
+            fill={'#fff'}
+            strokeWidth={'0.8px'}
           />
         )}
       </div>
-      <div className="span">
+      <div className='span'>
         <span>{idx.length == 1 ? null : idx.slice(0, 1)}</span>
         <span>{idx.length == 1 ? idx.slice(0, 1) : idx.slice(1, 2)}</span>
       </div>
@@ -62,7 +62,7 @@ const IndexModule = ({ id }) => {
 
         .module_container {
           position: relative;
-          height: 50px;
+          height: 53px;
           overflow-y: hidden;
           display: table;
           border-collapse: collapse;
@@ -70,7 +70,7 @@ const IndexModule = ({ id }) => {
         }
 
         .index_module {
-          height: 50px;
+          height: 52px;
           position: relative;
           overflow-x: hidden;
           overflow-y: hidden;
@@ -105,7 +105,7 @@ const IndexModule = ({ id }) => {
 const IndexContainer = ({ list }) => {
   return (
     <>
-      <div className="index_container">
+      <div className='index_container'>
         {list.map((item, i) => (
           <a key={i} href={`#${i}`}>
             <IndexModule key={i} id={i}></IndexModule>
@@ -116,7 +116,7 @@ const IndexContainer = ({ list }) => {
         {`
           .index_container {
             display: grid;
-            grid-template-columns: repeat(${list.length}, 30px);
+            grid-template-columns: repeat(${list.length * 2}, 27px);
             overflow-x: auto;
             height: 56.5px;
             overflow-y: hidden;
