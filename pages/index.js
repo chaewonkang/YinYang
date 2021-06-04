@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import Layout from "../components/Layout";
-import Bookmark from "../components/Bookmark";
-import Clock from "../components/Clock";
-import IndexModule from "../components/IndexModule";
-import Content from "../components/Content";
-import { getContentfulData } from "../utils/api";
+import Layout from '../components/Layout';
+import Bookmark from '../components/Bookmark';
+import Clock from '../components/Clock';
+import IndexModule from '../components/IndexModule';
+import Content from '../components/Content';
+import { getContentfulData } from '../utils/api';
 
 export default function Index({ data }) {
   const { workList } = data;
@@ -30,19 +30,19 @@ export default function Index({ data }) {
   useEffect(() => {
     if (window.innerWidth <= 768) setIsMobile(true);
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return (
     <Layout>
-      <div className="container">
-        <div className="index">
+      <div className='container'>
+        <div className='index'>
           <IndexModule list={workList}></IndexModule>
         </div>
-        <div className="content">
+        <div className='content'>
           {workList.map((work, i) => (
             <Content
               key={work.index}
@@ -53,22 +53,22 @@ export default function Index({ data }) {
           ))}
         </div>
         <div
-          className="clock"
+          className='clock'
           onMouseDown={() => openBM()}
           onMouseLeave={() => closeBM()}
         >
           <Clock isMobile={isMobile}></Clock>
         </div>
-        <div className="bookmark">
+        <div className='bookmark'>
           <Bookmark isVisible={isVisible}></Bookmark>
         </div>
       </div>
       <style jsx global>{`
         @font-face {
-          font-family: "customFont";
+          font-family: 'customFont';
           font-style: italic;
           font-weight: 400;
-          src: url("/fonts/JolyRegular.woff") format("woff");
+          src: url('/fonts/JolyRegular.woff') format('woff');
         }
 
         html,
@@ -77,7 +77,7 @@ export default function Index({ data }) {
           height: 100%;
           padding: 0;
           margin: 0;
-          font-family: "customFont";
+          font-family: 'customFont';
           overflow-y: hidden;
         }
 
@@ -86,11 +86,7 @@ export default function Index({ data }) {
           grid-template-columns: 1fr 100px 167px;
           grid-template-rows: 56px auto;
           row-gap: 20px;
-<<<<<<< HEAD
-          max-height: 100vh;
-=======
           overflow-y: hidden;
->>>>>>> 0ae274a6613cb8e95bd8857a4d02f0364fcbe31e
         }
 
         .index {

@@ -1,13 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-<<<<<<< HEAD
-import RightArrow from "../img/arrow.png";
-import LeftArrow from "../img/arrow_left.png";
-=======
 import RightArrow from "../img/arrow2x.png";
 import LeftArrow from "../img/arrow2x_left.png";
 import MobileRightArrow from "../img/mobileRight.png";
 import MobileLeftArrow from "../img/mobileLeft.png";
->>>>>>> 0ae274a6613cb8e95bd8857a4d02f0364fcbe31e
 
 export default function Slider({ items, id, isMobile }) {
   const TOTAL_SLIDES = items.imgList.length;
