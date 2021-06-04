@@ -1,12 +1,12 @@
-import SVG from "../utils/SVG";
-import bookMark from "../img/bookmark.png";
+import SVG from '../utils/SVG';
+import bookMark from '../img/bookmark.png';
 
 const Bookmark = ({ isVisible }) => (
   <>
     {isVisible ? (
-      <div className="mobileBackground">
+      <div className='mobileBackground'>
         <img src={bookMark}></img>
-        <div className="text">
+        <div className='text'>
           <p>
             YinYang is a design studio based in Seoul. We work as graphic
             designer and frontend engineer. We are concerned with making image
@@ -22,12 +22,12 @@ const Bookmark = ({ isVisible }) => (
           </p>
           <p>You can also buy our eggs on yolk.kr</p>
           <p>
-            <a href="mailto: yinyang.fig@gmail.com">Write</a>
+            <a href='mailto: yinyang.fig@gmail.com'>Write</a>
             <br></br>
             <a
-              href="https://instagram.com/yinyang.fig"
-              rel="noopenner noreferrer"
-              target="_blank"
+              href='https://instagram.com/yinyang.fig'
+              rel='noopenner noreferrer'
+              target='_blank'
             >
               Instagram
             </a>
@@ -35,17 +35,17 @@ const Bookmark = ({ isVisible }) => (
         </div>
       </div>
     ) : (
-      <div className="background">
+      <div className='background'>
         <SVG
-          className="svg"
-          name="bookMark"
-          height="524"
-          color=""
-          viewBox="0 0 167 524"
-          fill={"#fff"}
-          strokeWidth={"1px"}
+          className='svg'
+          name='bookMark'
+          height='620'
+          color=''
+          viewBox='0 0 167 544'
+          fill={'#fff'}
+          strokeWidth={'0.8px'}
         ></SVG>
-        <div className="text">
+        <div className='text'>
           <p>
             YinYang is a design studio based in Seoul. We work as graphic
             designer and frontend engineer. We are concerned with making image
@@ -61,12 +61,12 @@ const Bookmark = ({ isVisible }) => (
           </p>
           <p>You can also buy our eggs on yolk.kr</p>
           <p>
-            <a href="mailto: yinyang.fig@gmail.com">Write</a>
+            <a href='mailto: yinyang.fig@gmail.com'>Write</a>
             <br></br>
             <a
-              href="https://instagram.com/yinyang.fig"
-              rel="noopenner noreferrer"
-              target="_blank"
+              href='https://instagram.com/yinyang.fig'
+              rel='noopenner noreferrer'
+              target='_blank'
             >
               Instagram
             </a>

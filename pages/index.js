@@ -7,10 +7,13 @@ import IndexModule from '../components/IndexModule';
 import Content from '../components/Content';
 import { getContentfulData } from '../utils/api';
 
+import spinner from '../img/splashcolored.gif';
+
 export default function Index({ data }) {
   const { workList } = data;
   const [isMobile, setIsMobile] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleResize = () => {
     if (window.innerWidth <= 768) setIsMobile(true);
@@ -28,6 +31,12 @@ export default function Index({ data }) {
   };
 
   useEffect(() => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+
     if (window.innerWidth <= 768) setIsMobile(true);
 
     window.addEventListener('resize', handleResize);
@@ -35,6 +44,13 @@ export default function Index({ data }) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  //   if (loading)
+  //     return (
+  //       <div className='spinner_container'>
+  //         <img src={spinner} width='20%'></img>
+  //       </div>
+  //     );
 
   return (
     <Layout>
@@ -73,8 +89,6 @@ export default function Index({ data }) {
 
         html,
         body {
-          width: 100%;
-          height: 100%;
           padding: 0;
           margin: 0;
           font-family: 'customFont';
@@ -83,10 +97,18 @@ export default function Index({ data }) {
 
         .container {
           display: grid;
-          grid-template-columns: 1fr 100px 167px;
+          grid-template-columns: auto 167px 230px;
           grid-template-rows: 56px auto;
           row-gap: 20px;
           overflow-y: hidden;
+        }
+
+        .spinner_container {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .index {
@@ -97,7 +119,7 @@ export default function Index({ data }) {
         }
 
         .content {
-          width: calc(100vw - 399px);
+          width: calc(100vw - 440px);
           top: 90px;
           bottom: 0;
           position: fixed;

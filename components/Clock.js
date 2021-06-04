@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import * as dom from "./Dom";
-import { real } from "./Mechanism";
-import SVG from "../utils/SVG";
+import { useState, useEffect } from 'react';
+import * as dom from './Dom';
+import { real } from './Mechanism';
+import SVG from '../utils/SVG';
 
 const Clock = ({ isMobile }) => {
   const [time, setTime] = useState(new Date());
@@ -13,35 +13,35 @@ const Clock = ({ isMobile }) => {
   }, []);
 
   return (
-    <div className="clock_area">
+    <div className='clock_area'>
       {isMobile ? (
         <div>
           <SVG
-            className="clock_bg"
-            name="clock"
-            height="40"
-            color=""
-            viewBox="0 0 152 91"
+            className='clock_bg'
+            name='clock'
+            height='40'
+            color=''
+            viewBox='0 0 152 91'
             g={true}
-            transform={"translate(-1016.7 -141.722)"}
-            fill={"#fff"}
-            strokeWidth={"2px"}
+            transform={'translate(-1016.7 -141.722)'}
+            fill={'#fff'}
+            strokeWidth={'2px'}
           />
-          <div className="clock">
+          <div className='clock'>
             <div
-              className="hour_hand"
+              className='hour_hand'
               style={{
                 transform: `rotateZ(${time.getHours() * 30}deg)`,
               }}
             />
             <div
-              className="min_hand"
+              className='min_hand'
               style={{
                 transform: `rotateZ(${time.getMinutes() * 6}deg)`,
               }}
             />
             <div
-              className="sec_hand"
+              className='sec_hand'
               style={{
                 transform: `rotateZ(${time.getSeconds() * 6}deg)`,
               }}
@@ -51,30 +51,30 @@ const Clock = ({ isMobile }) => {
       ) : (
         <>
           <SVG
-            className="clock_bg"
-            name="clock"
-            height="91"
-            color=""
-            viewBox="0 0 152 91"
+            className='clock_bg'
+            name='clock'
+            height='100'
+            color=''
+            viewBox='0 0 152 91'
             g={true}
-            transform={"translate(-1016.7 -141.722)"}
-            fill={"none"}
+            transform={'translate(-1016.7 -141.722)'}
+            fill={'none'}
           />
-          <div className="clock">
+          <div className='clock'>
             <div
-              className="hour_hand"
+              className='hour_hand'
               style={{
                 transform: `rotateZ(${time.getHours() * 30}deg)`,
               }}
             />
             <div
-              className="min_hand"
+              className='min_hand'
               style={{
                 transform: `rotateZ(${time.getMinutes() * 6}deg)`,
               }}
             />
             <div
-              className="sec_hand"
+              className='sec_hand'
               style={{
                 transform: `rotateZ(${time.getSeconds() * 6}deg)`,
               }}
@@ -203,7 +203,7 @@ const Clock = ({ isMobile }) => {
 
           .clock span {
             position: absolute;
-            font-family: "Source Sans Pro", sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 10px;
           }
         `}
