@@ -81,17 +81,18 @@ export default function Index({ data }) {
       </div>
       <style jsx global>{`
         @font-face {
-          font-family: 'customFont';
-          font-style: italic;
-          font-weight: 400;
-          src: url('/fonts/JolyRegular.woff') format('woff');
+          font-family: 'Joly Trial Headline';
+          src: url('/fonts/JolyTrial-RegularHeadline.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
         }
 
         html,
         body {
           padding: 0;
           margin: 0;
-          font-family: 'customFont';
+          font-family: 'Joly Trial Headline';
           overflow-y: hidden;
         }
 
@@ -155,7 +156,7 @@ export default function Index({ data }) {
           }
 
           .content {
-            width: calc(100vw - 227px);
+            width: calc(100vw - 250px);
             top: 90px;
             bottom: 0;
             position: fixed;
