@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from "react";
-import RightArrow from "../img/arrow2x.png";
-import LeftArrow from "../img/arrow2x_left.png";
-import MobileRightArrow from "../img/mobileRight.png";
-import MobileLeftArrow from "../img/mobileLeft.png";
+import { useState, useRef, useEffect } from 'react';
+import RightArrow from '../img/arrow2x.png';
+import LeftArrow from '../img/arrow2x_left.png';
+import MobileRightArrow from '../img/mobileRight.png';
+import MobileLeftArrow from '../img/mobileLeft.png';
 
 export default function Slider({ items, id, isMobile }) {
   const TOTAL_SLIDES = items.imgList.length;
@@ -16,6 +16,7 @@ export default function Slider({ items, id, isMobile }) {
       setCurrentSlide(currentSlide + 1);
     }
   };
+
   const prevSlide = () => {
     if (currentSlide === 1) {
       setCurrentSlide(TOTAL_SLIDES);
@@ -25,51 +26,49 @@ export default function Slider({ items, id, isMobile }) {
   };
 
   useEffect(() => {
-    slideRef.current.style.transition = "all 0.5s ease-in-out";
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide - 1}00%)`;
   }, [currentSlide]);
 
   return (
     <>
-      <div className="slider_wrapper" id={`work_${id}`}>
-        <div className="slider_container">
-          <div className="slide" ref={slideRef}>
+      <div className='slider_wrapper' id={`work_${id}`}>
+        <div className='slider_container'>
+          <div className='slide' ref={slideRef}>
             {items.imgList.map((item, key) => (
-              <img key={key} className="img" src={item.imgUrl.url} />
+              <img key={key} className='img' src={item.imgUrl.url} />
             ))}
           </div>
         </div>
         {isMobile ? (
-          <div className="mobile_arrows_and_number_container">
-            <div className="mobile_navigate_left_button" onClick={prevSlide}>
-              {" "}
+          <div className='mobile_arrows_and_number_container'>
+            <div className='mobile_navigate_left_button' onClick={prevSlide}>
               <img src={MobileLeftArrow}></img>
             </div>
-            <div className="mobile_navigate_right_button" onClick={nextSlide}>
-              {" "}
+            <div className='mobile_navigate_right_button' onClick={nextSlide}>
               <img src={MobileRightArrow}></img>
             </div>
           </div>
         ) : (
-          <div className="arrows_and_number_container">
-            <div className="navigate_left_button" onClick={prevSlide}>
-              <img src={LeftArrow} width="152px"></img>
+          <div className='arrows_and_number_container'>
+            <div className='navigate_left_button' onClick={prevSlide}>
+              <img src={LeftArrow} width='152px'></img>
             </div>
-            <div className="navigate_right_button" onClick={nextSlide}>
-              <img src={RightArrow} width="152px"></img>
+            <div className='navigate_right_button' onClick={nextSlide}>
+              <img src={RightArrow} width='152px'></img>
             </div>
           </div>
         )}
       </div>
-      <div className="content_info">
-        <div className="content_info_text">
-          <div className="title">{items.title},</div>
-          <div className="where">{items.client},</div>
-          <div className="when">{items.year}</div>
-          <div className="category">[{items.category}]</div>
+      <div className='content_info'>
+        <div className='content_info_text'>
+          <div className='title'>{items.title},</div>
+          <div className='where'>{items.client},</div>
+          <div className='when'>{items.year}</div>
+          <div className='category'>[{items.category}]</div>
         </div>
         {TOTAL_SLIDES > 1 ? (
-          <div className="pages">
+          <div className='pages'>
             <span>
               {currentSlide} / {TOTAL_SLIDES}
             </span>
@@ -108,7 +107,7 @@ export default function Slider({ items, id, isMobile }) {
 
         .slider_container {
           position: relative;
-          width: 100%;
+          display: table;
           height: 100%;
           display: flex;
           box-sizing: content-box;
@@ -177,7 +176,8 @@ export default function Slider({ items, id, isMobile }) {
           height: 100%;
         }
 
-        button: hover {
+        button:hover,
+        button:active {
           transition: all 0.3s ease-in-out;
           color: #000;
         }
@@ -242,28 +242,40 @@ export default function Slider({ items, id, isMobile }) {
           .mobile_arrows_and_number_container {
             display: grid;
             width: 100%;
+            height: 100%;
             grid-template-columns: 1fr 1fr;
             position: absolute;
             top: 0;
             overflow-x: hidden;
             overflow-y: hidden;
-            height: 100%;
           }
 
           .mobile_navigate_left_button,
           .mobile_navigate_right_button {
-            z-index: 10000;
             display: flex;
+            height: 100%;
+            z-index: 1000;
             align-items: center;
-            width: 100px;
           }
 
-          .navigate_left_button > img,
-          .navigate_right_button > img {
-            display: block;
+          .mobile_navigate_left_button {
+            justify-content: flex-start;
+            -webkit-align-self: center;
+            align-self: center;
+            left: 0;
+            padding-left: 5%;
+          }
+
+          .mobile_navigate_right_button {
+            justify-content: flex-end;
+            right: 0;
+            padding-right: 5%;
+          }
+
+          .mobile_navigate_left_button > img,
+          .mobile_navigate_right_button > img {
             z-index: 10000;
-            display: flex;
-            align-items: center;
+            width: 16px;
           }
         }
       `}</style>

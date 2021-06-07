@@ -7,7 +7,7 @@ import IndexModule from '../components/IndexModule';
 import Content from '../components/Content';
 import { getContentfulData } from '../utils/api';
 
-import spinner from '../img/splash.gif';
+import spinner from '../img/splashcolored.gif';
 
 export default function Index({ data }) {
   const { workList } = data;
@@ -45,16 +45,12 @@ export default function Index({ data }) {
     };
   }, []);
 
-  if (loading)
-    return (
-      <Layout>
-        <div className='spinner_container'>
-          <div>
-            <img src={spinner} width='20%'></img>
-          </div>
-        </div>
-      </Layout>
-    );
+  //   if (loading)
+  //     return (
+  //       <div className='spinner_container'>
+  //         <img src={spinner} width='20%'></img>
+  //       </div>
+  //     );
 
   return (
     <Layout>
@@ -88,13 +84,11 @@ export default function Index({ data }) {
           font-family: 'customFont';
           font-style: italic;
           font-weight: 400;
-          src: url('./fonts/JolyRegular.woff') format('woff');
+          src: url('/fonts/JolyRegular.woff') format('woff');
         }
 
         html,
         body {
-          width: 100%;
-          height: 100%;
           padding: 0;
           margin: 0;
           font-family: 'customFont';
@@ -103,7 +97,7 @@ export default function Index({ data }) {
 
         .container {
           display: grid;
-          grid-template-columns: 1fr 100px 167px;
+          grid-template-columns: auto 167px 230px;
           grid-template-rows: 56px auto;
           row-gap: 20px;
           overflow-y: hidden;
@@ -113,11 +107,8 @@ export default function Index({ data }) {
           width: 100vw;
           height: 100vh;
           display: flex;
-        }
-
-        .spinner_container div {
-          justify-self: center;
-          align-self: center;
+          align-items: center;
+          justify-content: center;
         }
 
         .index {
@@ -128,7 +119,7 @@ export default function Index({ data }) {
         }
 
         .content {
-          width: calc(100vw - 399px);
+          width: calc(100vw - 440px);
           top: 90px;
           bottom: 0;
           position: fixed;
