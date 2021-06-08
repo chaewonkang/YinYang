@@ -45,12 +45,7 @@ export default function Index({ data }) {
     };
   }, []);
 
-  //   if (loading)
-  //     return (
-  //       <div className='spinner_container'>
-  //         <img src={spinner} width='20%'></img>
-  //       </div>
-  //     );
+  if (loading) return <div className='spinner_container'></div>;
 
   return (
     <Layout>
