@@ -7,7 +7,7 @@ import IndexModule from '../components/IndexModule';
 import Content from '../components/Content';
 import { getContentfulData } from '../utils/api';
 
-import spinner from '../img/splashcolored.gif';
+import spinner from '../img/splash.gif';
 
 export default function Index({ data }) {
   const { workList } = data;
@@ -35,7 +35,7 @@ export default function Index({ data }) {
 
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 5000);
 
     if (window.innerWidth <= 768) setIsMobile(true);
 
@@ -51,7 +51,7 @@ export default function Index({ data }) {
         <div
           className='spinner_container'
           style={{
-            height: 100 + 'vh',
+            height: 80 + 'vh',
             width: 100 + 'vw',
             display: 'flex',
             alignItems: 'center',
@@ -60,7 +60,7 @@ export default function Index({ data }) {
             overflowY: 'hidden',
           }}
         >
-          <img src={spinner} width='20%'></img>
+          <img src={spinner} width='50%'></img>
         </div>
       </>
     );
