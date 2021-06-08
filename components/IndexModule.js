@@ -2,7 +2,7 @@ import SVG from '../utils/SVG';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
-const IndexModule = ({ id }) => {
+const IndexModule = ({ id, text }) => {
   const idx = id.toString();
   const router = useRouter();
   const [bgBlack, setBgBlack] = useState(false);
@@ -15,30 +15,22 @@ const IndexModule = ({ id }) => {
   return (
     <div className='module_container'>
       <div className='index_module'>
-        {bgBlack ? (
-          <SVG
-            name='book'
-            height='52'
-            color=''
-            viewBox='0 0  52'
-            fill={'#000'}
-            strokeWidth={'0.8px'}
-          />
-        ) : (
-          <SVG
-            name='book'
-            height='52'
-            color=''
-            viewBox='0 0 30 52'
-            fill={'#fff'}
-            strokeWidth={'0.8px'}
-          />
-        )}
+        <SVG
+          name='book'
+          height='52'
+          color=''
+          viewBox='0 0 30 52'
+          fill={'#fff'}
+          strokeWidth={'0.8px'}
+        />
       </div>
-      <div className='span'>
-        <span>{idx.length == 1 ? null : idx.slice(0, 1)}</span>
-        <span>{idx.length == 1 ? idx.slice(0, 1) : idx.slice(1, 2)}</span>
-      </div>
+      {text ? null : (
+        <div className='span'>
+          <span>{idx.length == 1 ? null : idx.slice(0, 1)}</span>
+          <span>{idx.length == 1 ? idx.slice(0, 1) : idx.slice(1, 2)}</span>
+        </div>
+      )}
+
       <style jsx>{`
         @keyframes fadeIn {
           0% {
@@ -88,7 +80,7 @@ const IndexModule = ({ id }) => {
 
         span:nth-child(1) {
           position: absolute;
-          bottom: 10px;
+          bottom: 11px;
           right: 15px;
         }
 
@@ -107,8 +99,8 @@ const IndexContainer = ({ list }) => {
     <>
       <div className='index_container'>
         {list.map((item, i) => (
-          <a key={i} href={`#${i}`}>
-            <IndexModule key={i} id={i}></IndexModule>
+          <a key={i + 1} href={`#${i}`}>
+            <IndexModule key={i + 1} id={i + 1}></IndexModule>
           </a>
         ))}
       </div>

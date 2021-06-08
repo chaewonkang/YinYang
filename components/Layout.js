@@ -1,6 +1,7 @@
 const layoutStyle = {
-  margin: 20,
+  marginLeft: 20,
   marginRight: 0,
+  marginTop: 15,
   overflowX: 'hidden',
   overflowY: 'hidden',
 };

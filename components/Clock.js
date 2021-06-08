@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import * as dom from './Dom';
-import { real } from './Mechanism';
 import SVG from '../utils/SVG';
 
 const Clock = ({ isMobile }) => {

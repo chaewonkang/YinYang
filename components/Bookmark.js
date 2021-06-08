@@ -115,6 +115,7 @@ const Bookmark = ({ isVisible }) => (
 
         .text {
           position: absolute;
+          max-width: 200px;
           top: 0;
         }
 
@@ -131,6 +132,12 @@ const Bookmark = ({ isVisible }) => (
         @media screen and (max-width: 768px) {
           .background {
             display: none;
+          }
+
+          .text {
+            position: absolute;
+            max-width: 90vw;
+            top: 0;
           }
 
           .mobileBackground {

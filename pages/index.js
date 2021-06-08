@@ -35,7 +35,7 @@ export default function Index({ data }) {
 
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 1000);
 
     if (window.innerWidth <= 768) setIsMobile(true);
 
@@ -45,12 +45,25 @@ export default function Index({ data }) {
     };
   }, []);
 
-  //   if (loading)
-  //     return (
-  //       <div className='spinner_container'>
-  //         <img src={spinner} width='20%'></img>
-  //       </div>
-  //     );
+  if (loading)
+    return (
+      <>
+        <div
+          className='spinner_container'
+          style={{
+            height: 100 + 'vh',
+            width: 100 + 'vw',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflowX: 'hidden',
+            overflowY: 'hidden',
+          }}
+        >
+          <img src={spinner} width='20%'></img>
+        </div>
+      </>
+    );
 
   return (
     <Layout>
@@ -79,130 +92,131 @@ export default function Index({ data }) {
           <Bookmark isVisible={isVisible}></Bookmark>
         </div>
       </div>
-      <style jsx global>{`
-        @font-face {
-          font-family: 'customFont';
-          font-style: italic;
-          font-weight: 400;
-          src: url('/fonts/JolyRegular.woff') format('woff');
-        }
+      <style jsx global>
+        {`
+          @font-face {
+            font-family: 'Joly Trial Headline';
+            src: url('/fonts/JolyTrial-RegularHeadline.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+          }
 
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: 'customFont';
-          overflow-y: hidden;
-        }
-
-        .container {
-          display: grid;
-          grid-template-columns: auto 167px 230px;
-          grid-template-rows: 56px auto;
-          row-gap: 20px;
-          overflow-y: hidden;
-        }
-
-        .spinner_container {
-          width: 100vw;
-          height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .index {
-          grid-column: 1 / 9;
-          grid-row: 1 / 2;
-          z-index: 1000;
-          overflow-y: hidden;
-        }
-
-        .content {
-          width: calc(100vw - 440px);
-          top: 90px;
-          bottom: 0;
-          position: fixed;
-          overflow-y: scroll;
-          overflow-x: hidden;
-        }
-
-        .content::-webkit-scrollbar {
-          display: none;
-        }
-
-        .clock {
-          grid-column: 7 / 8;
-          z-index: 100;
-        }
-
-        .bookmark {
-          grid-column: 8 / 9;
-          padding-left: 20px;
-        }
-
-        @media (max-width: 1192px) {
-          .clock {
-            grid-column: 8 / 9;
+          html,
+          body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Joly Trial Headline';
+            overflow-y: hidden;
           }
 
           .container {
+            max-width: 1900px;
             display: grid;
-            grid-template-columns: 1fr 100px 167px;
-            grid-template-rows: 60px auto;
-            row-gap: 20px;
-            max-height: 90vh;
+            grid-template-columns: repeat(auto, 7) 167px 210px;
+            grid-template-rows: 56px auto;
+            row-gap: 15px;
+            overflow-y: hidden;
+          }
+
+          .index {
+            grid-column: 1 / 9;
+            grid-row: 0 / 1;
+            z-index: 1000;
+            overflow-y: hidden;
           }
 
           .content {
-            width: calc(100vw - 227px);
+            width: calc(100vw - 480px);
+            max-width: 1440px;
+            grid-row: 1 / 2;
             top: 90px;
             bottom: 0;
             position: fixed;
             overflow-y: scroll;
             overflow-x: hidden;
           }
-        }
 
-        @media (max-width: 768px) {
-          .container {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 60px auto;
-            row-gap: 10px;
-            max-height: 90vh;
-            overflow-y: hidden;
-            overflow-x: hidden;
+          .content::-webkit-scrollbar {
+            display: none;
           }
 
           .clock {
-            margin-right: 20px;
-            cursor: pointer;
-            width: calc(100vw - 40px);
-            display: flex;
-            justify-content: flex-end;
+            grid-column: 7 / 8;
             z-index: 100;
           }
 
           .bookmark {
-            width: calc(100vw - 40px);
-            display: flex;
-            justify-content: flex-end;
             grid-column: 8 / 9;
-            padding-left: 0;
           }
 
-          .content {
-            width: calc(100vw - 40px);
-            top: 100px;
-            bottom: 0;
-            position: fixed;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            padding-top: 50px;
+          @media (max-width: 1912px) {
+            .clock {
+              grid-column: 8 / 9;
+            }
+
+            .container {
+              display: grid;
+              grid-template-columns: 1fr 100px 167px;
+              grid-template-rows: 60px auto;
+              row-gap: 20px;
+              max-height: 90vh;
+            }
+
+            .content {
+              width: calc(100vw - 250px);
+              top: 85px;
+              bottom: 0;
+              position: fixed;
+              overflow-y: scroll;
+              overflow-x: hidden;
+            }
+
+            .bookmark {
+              padding-left: 20px;
+            }
           }
-        }
-      `}</style>
+
+          @media (max-width: 768px) {
+            .container {
+              display: grid;
+              grid-template-columns: 1fr;
+              grid-template-rows: 60px auto;
+              row-gap: 5px;
+              max-height: 90vh;
+              overflow-y: hidden;
+              overflow-x: hidden;
+            }
+
+            .clock {
+              margin-right: 20px;
+              cursor: pointer;
+              width: calc(100vw - 40px);
+              display: flex;
+              justify-content: flex-end;
+              z-index: 100;
+            }
+
+            .bookmark {
+              width: calc(100vw - 40px);
+              display: flex;
+              justify-content: flex-end;
+              grid-column: 8 / 9;
+              padding-left: 0;
+            }
+
+            .content {
+              width: calc(100vw - 40px);
+              top: 80px;
+              bottom: 0;
+              position: fixed;
+              overflow-y: scroll;
+              overflow-x: hidden;
+              padding-top: 50px;
+            }
+          }
+        `}
+      </style>
     </Layout>
   );
 }

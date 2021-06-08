@@ -42,10 +42,28 @@ export default function Slider({ items, id, isMobile }) {
         </div>
         {isMobile ? (
           <div className='mobile_arrows_and_number_container'>
-            <div className='mobile_navigate_left_button' onClick={prevSlide}>
+            <div
+              className='mobile_navigate_left_button'
+              onClick={prevSlide}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                overflowX: 'hidden',
+                overflowY: 'hidden',
+              }}
+            >
               <img src={MobileLeftArrow}></img>
             </div>
-            <div className='mobile_navigate_right_button' onClick={nextSlide}>
+            <div
+              className='mobile_navigate_right_button'
+              onClick={nextSlide}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                overflowX: 'hidden',
+                overflowY: 'hidden',
+              }}
+            >
               <img src={MobileRightArrow}></img>
             </div>
           </div>
@@ -246,30 +264,27 @@ export default function Slider({ items, id, isMobile }) {
             grid-template-columns: 1fr 1fr;
             position: absolute;
             top: 0;
-            overflow-x: hidden;
-            overflow-y: hidden;
           }
 
           .mobile_navigate_left_button,
           .mobile_navigate_right_button {
+            position: absolute;
+            top: 42%;
             display: flex;
-            height: 100%;
             z-index: 1000;
             align-items: center;
           }
 
           .mobile_navigate_left_button {
             justify-content: flex-start;
-            -webkit-align-self: center;
-            align-self: center;
             left: 0;
-            padding-left: 5%;
+            padding-left: 3%;
           }
 
           .mobile_navigate_right_button {
             justify-content: flex-end;
             right: 0;
-            padding-right: 5%;
+            padding-right: 3%;
           }
 
           .mobile_navigate_left_button > img,
