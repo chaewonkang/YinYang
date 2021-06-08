@@ -58,7 +58,7 @@ const Bookmark = ({ isVisible }) => (
         <SVG
           className='svg'
           name='bookMark'
-          height='620'
+          height='600'
           color=''
           viewBox='0 0 167 544'
           fill={'#fff'}
@@ -152,7 +152,6 @@ const Bookmark = ({ isVisible }) => (
           margin-right: 20px;
           position: relative;
           animation: 1s ease-out 0s 1 fadeIn;
-          max-height: 500;
           overflow: auto;
         }
 

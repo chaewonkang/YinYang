@@ -35,7 +35,7 @@ export default function Index({ data }) {
 
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 500);
 
     if (window.innerWidth <= 768) setIsMobile(true);
 
@@ -51,7 +51,7 @@ export default function Index({ data }) {
         <div
           className='spinner_container'
           style={{
-            height: 80 + 'vh',
+            height: 100 + 'vh',
             width: 100 + 'vw',
             display: 'flex',
             alignItems: 'center',
@@ -111,8 +111,8 @@ export default function Index({ data }) {
           }
 
           .container {
-            max-width: 1900px;
             display: grid;
+            max-width: 1900px;
             grid-template-columns: repeat(auto, 7) 167px 210px;
             grid-template-rows: 56px auto;
             row-gap: 15px;
@@ -160,7 +160,6 @@ export default function Index({ data }) {
               grid-template-columns: 1fr 100px 167px;
               grid-template-rows: 60px auto;
               row-gap: 20px;
-              max-height: 90vh;
             }
 
             .content {
@@ -183,7 +182,6 @@ export default function Index({ data }) {
               grid-template-columns: 1fr;
               grid-template-rows: 60px auto;
               row-gap: 5px;
-              max-height: 90vh;
               overflow-y: hidden;
               overflow-x: hidden;
             }
