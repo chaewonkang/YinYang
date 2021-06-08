@@ -157,7 +157,7 @@ const Bookmark = ({ isVisible }) => (
 
         .text {
           position: absolute;
-          max-width: 200px;
+          max-width: 195px;
           height: 550px;
           overflow: auto;
           top: 0;

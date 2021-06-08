@@ -18,7 +18,6 @@ class MyDocument extends Document {
             crossOrigin=''
           />
           <link rel='shortcut icon' href='/static/favicon.ico' crossOrigin='' />
-          <title>YinYang</title>
         </Head>
         <body>
           <Main />

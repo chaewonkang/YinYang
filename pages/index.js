@@ -35,7 +35,7 @@ export default function Index({ data }) {
 
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 5000);
 
     if (window.innerWidth <= 768) setIsMobile(true);
 
@@ -128,7 +128,7 @@ export default function Index({ data }) {
 
           .content {
             width: calc(100vw - 480px);
-            max-width: 1440px;
+            max-width: 1460px;
             grid-row: 1 / 2;
             top: 90px;
             bottom: 0;
@@ -163,7 +163,7 @@ export default function Index({ data }) {
             }
 
             .content {
-              width: calc(100vw - 250px);
+              width: calc(100vw - 245px);
               top: 85px;
               bottom: 0;
               position: fixed;
