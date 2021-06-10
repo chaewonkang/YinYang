@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
       {/* Add the favicon */}
       <Head>
         <link rel='shortcut icon' href='/favicon.ico' />
-        <title>YinYang</title>
+        <title>YinYang.fig</title>
       </Head>
       {/* Add the favicon */}
       {/* Note that the path doesn't include "public" */}

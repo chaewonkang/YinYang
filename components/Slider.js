@@ -80,7 +80,9 @@ export default function Slider({ items, id, isMobile }) {
       </div>
       <div className='content_info'>
         <div className='content_info_text'>
-          <div className='title'>{items.title},</div>
+          <div className='title'>
+            {id + 1}. {items.title},
+          </div>
           <div className='where'>{items.client},</div>
           <div className='when'>{items.year}</div>
           <div className='category'>[{items.category}]</div>

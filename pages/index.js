@@ -13,7 +13,7 @@ export default function Index({ data }) {
   const { workList } = data;
   const [isMobile, setIsMobile] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleResize = () => {
     if (window.innerWidth <= 768) setIsMobile(true);
@@ -31,13 +31,9 @@ export default function Index({ data }) {
   };
 
   useEffect(() => {
-    // setLoading(true);
-
-    // setLoading(true);
-
-    // setTimeout(() => {
-    //   setLoading(false);
-    // }, 5000);
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
 
     if (window.innerWidth <= 768) setIsMobile(true);
 
@@ -62,7 +58,11 @@ export default function Index({ data }) {
             overflowY: 'hidden',
           }}
         >
-          <img src={spinner} width='50%'></img>
+          {isMobile ? (
+            <img src={spinner} width='50%'></img>
+          ) : (
+            <img src={spinner} width='25%'></img>
+          )}
         </div>
       </>
     );
@@ -184,6 +184,7 @@ export default function Index({ data }) {
             }
 
             .content {
+              width: calc(100vw - 40px);
               max-width: calc(100vw - 40px);
               top: 80px;
               bottom: 0;
