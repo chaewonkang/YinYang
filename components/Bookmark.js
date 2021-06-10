@@ -195,30 +195,51 @@ const Bookmark = ({ isVisible }) => (
 
           .text {
             position: absolute;
-            max-width: 90vw;
+            width: 88vw;
+            width: calc(100vw - 40px);
+            max-width: calc(100vw - 40px);
             top: 0;
             height: 40vh;
             overflow: auto;
+          }
+
+          p {
+            width: calc(100vw - 40px);
+            max-width: calc(100vw - 40px);
+            font-size: 13px;
+            word-break: keep-all;
+            margin: 0;
+            padding: 5px 15px 5px 5px;
+            line-height: 15px;
+            overflow: auto;
+            animation: 2s ease-out 0s 1 fadeIn;
           }
 
           .mobileBackground {
             position: fixed;
             top: 50;
             left: 20;
+            display: flex;
+            jusitfy-content: flex-end;
             z-index: 10;
             width: calc(100vw - 40px);
+            max-width: calc(100vw - 40px);
             animation: 1s ease-out 0s 1 fadeIn;
           }
 
           img {
             width: calc(100vw - 40px);
+            max-width: calc(100vw - 40px);
           }
 
           .mobileBackground .text {
             position: absolute;
+            min-height: 260px;
+            height: 40vh;
+            max-height: 763px;
             top: 0;
             overflow: auto;
-            z-index: 10;
+            z-index: 1000000000;
             animation: 1.5s ease-out 0s 1 fadeIn;
           }
         }

@@ -13,6 +13,7 @@ export default function Index({ data }) {
   const { workList } = data;
   const [isMobile, setIsMobile] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [readyToClosed, setReadyToClosed] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const handleResize = () => {
@@ -21,13 +22,17 @@ export default function Index({ data }) {
   };
 
   const openBM = () => {
-    if (window.innerWidth <= 768) setIsVisible(true);
-    else return;
+    if (window.innerWidth <= 768) {
+      setIsVisible(true);
+      setReadyToClosed(true);
+    } else return;
   };
 
   const closeBM = () => {
-    if (window.innerWidth <= 768) setIsVisible(false);
-    else return;
+    if (window.innerWidth <= 768) {
+      setIsVisible(false);
+      setReadyToClosed(false);
+    } else return;
   };
 
   useEffect(() => {
@@ -85,8 +90,7 @@ export default function Index({ data }) {
         </div>
         <div
           className='clock'
-          onMouseDown={() => openBM()}
-          onMouseLeave={() => closeBM()}
+          onMouseDown={readyToClosed ? () => closeBM() : () => openBM()}
         >
           <Clock isMobile={isMobile}></Clock>
         </div>
@@ -179,7 +183,7 @@ export default function Index({ data }) {
               width: calc(100vw - 40px);
               display: flex;
               justify-content: flex-end;
-              grid-column: 8 / 9;
+              grid-column: 1 / 3;
               padding-left: 0;
             }
 
