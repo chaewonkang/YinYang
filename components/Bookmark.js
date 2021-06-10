@@ -18,6 +18,17 @@ const Bookmark = ({ isVisible }) => (
             works. For any inquiries, please contact: yinyang.fig@gmail.com
           </p>
           <p>
+            <a href='mailto: yinyang.fig@gmail.com'>Write</a>
+            <br></br>
+            <a
+              href='https://instagram.com/yinyang.fig'
+              rel='noopenner noreferrer'
+              target='_blank'
+            >
+              Instagram
+            </a>
+          </p>
+          <p>
             Our works were featured in<br></br>
             It’s Nice That<br></br>
             GDFS 2017<br></br>
@@ -40,17 +51,6 @@ const Bookmark = ({ isVisible }) => (
             and more<br></br>
           </p>
           <p>(You can also buy our eggs on y-o-l-k.com)</p>
-          <p>
-            <a href='mailto: yinyang.fig@gmail.com'>Write</a>
-            <br></br>
-            <a
-              href='https://instagram.com/yinyang.fig'
-              rel='noopenner noreferrer'
-              target='_blank'
-            >
-              Instagram
-            </a>
-          </p>
         </div>
       </div>
     ) : (
@@ -58,7 +58,7 @@ const Bookmark = ({ isVisible }) => (
         <SVG
           className='svg'
           name='bookMark'
-          height='600'
+          height='585'
           color=''
           viewBox='0 0 167 544'
           fill={'#fff'}
@@ -76,6 +76,18 @@ const Bookmark = ({ isVisible }) => (
             works. For any inquiries, please contact: yinyang.fig@gmail.com
             <br></br>
           </p>
+          <p>
+            <a href='mailto: yinyang.fig@gmail.com'>Write</a>
+            <br></br>
+            <a
+              href='https://instagram.com/yinyang.fig'
+              rel='noopenner noreferrer'
+              target='_blank'
+            >
+              Instagram
+            </a>
+          </p>
+          <div className='appleBox'></div>
           <p>
             Our works were featured in<br></br>
             It’s Nice That<br></br>
@@ -102,17 +114,7 @@ const Bookmark = ({ isVisible }) => (
             <br></br>
           </p>
           <p>You can also buy our eggs on y-o-l-k.com</p>
-          <p>
-            <a href='mailto: yinyang.fig@gmail.com'>Write</a>
-            <br></br>
-            <a
-              href='https://instagram.com/yinyang.fig'
-              rel='noopenner noreferrer'
-              target='_blank'
-            >
-              Instagram
-            </a>
-          </p>
+          <div className='appleBox2'></div>
         </div>
       </div>
     )}
@@ -138,27 +140,36 @@ const Bookmark = ({ isVisible }) => (
           }
         }
 
+        .appleBox {
+          height: 185px;
+        }
+
+        .appleBox2 {
+          height: 115px;
+        }
+
         p {
+          width: 167px;
           font-size: 13px;
           word-break: keep-all;
           margin: 0;
-          padding: 5px 15px 5px 5px;
+          padding: 5px 0px 5px 5px;
           line-height: 15px;
           overflow: auto;
           animation: 2s ease-out 0s 1 fadeIn;
         }
 
         .background {
-          margin-right: 20px;
           position: relative;
           animation: 1s ease-out 0s 1 fadeIn;
           overflow: auto;
         }
 
         .text {
+          padding-top: 0.15em;
           position: absolute;
           max-width: 195px;
-          height: 550px;
+          height: 530px;
           overflow: auto;
           top: 0;
         }

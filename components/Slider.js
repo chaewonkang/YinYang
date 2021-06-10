@@ -229,7 +229,7 @@ export default function Slider({ items, id, isMobile }) {
         .where,
         .when {
           display: inline;
-          padding-right: 0.5em;
+          padding-right: 0.3em;
           font-size: 17px;
         }
 

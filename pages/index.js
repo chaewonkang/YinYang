@@ -31,11 +31,13 @@ export default function Index({ data }) {
   };
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-    }, 5000);
+    // setLoading(true);
+
+    // setTimeout(() => {
+    //   setLoading(false);
+    // }, 5000);
 
     if (window.innerWidth <= 768) setIsMobile(true);
 
@@ -113,24 +115,24 @@ export default function Index({ data }) {
           .container {
             display: grid;
             max-width: 1900px;
-            grid-template-columns: repeat(auto, 7) 167px 210px;
+            grid-template-columns: auto 180px 200px;
             grid-template-rows: 56px auto;
             row-gap: 15px;
             overflow-y: hidden;
           }
 
           .index {
-            grid-column: 1 / 9;
+            grid-column: 1 / 4;
             grid-row: 0 / 1;
             z-index: 1000;
             overflow-y: hidden;
           }
 
           .content {
-            width: calc(100vw - 480px);
-            max-width: 1460px;
+            width: calc(100vw - 422px);
+            max-width: 1500px;
             grid-row: 1 / 2;
-            top: 90px;
+            top: 88px;
             bottom: 0;
             position: fixed;
             overflow-y: scroll;
@@ -142,38 +144,16 @@ export default function Index({ data }) {
           }
 
           .clock {
-            grid-column: 7 / 8;
+            grid-column: 2 / 3;
             z-index: 100;
+            margin-right: 20px;
           }
 
           .bookmark {
-            grid-column: 8 / 9;
-          }
-
-          @media (max-width: 1912px) {
-            .clock {
-              grid-column: 8 / 9;
-            }
-
-            .container {
-              display: grid;
-              grid-template-columns: 1fr 100px 167px;
-              grid-template-rows: 60px auto;
-              row-gap: 20px;
-            }
-
-            .content {
-              width: calc(100vw - 245px);
-              top: 85px;
-              bottom: 0;
-              position: fixed;
-              overflow-y: scroll;
-              overflow-x: hidden;
-            }
-
-            .bookmark {
-              padding-left: 20px;
-            }
+            grid-column: 3 / 4;
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 20px;
           }
 
           @media (max-width: 768px) {
@@ -204,7 +184,7 @@ export default function Index({ data }) {
             }
 
             .content {
-              width: calc(100vw - 40px);
+              max-width: calc(100vw - 40px);
               top: 80px;
               bottom: 0;
               position: fixed;

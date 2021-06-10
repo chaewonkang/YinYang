@@ -7,7 +7,7 @@ const Clock = ({ isMobile }) => {
   useEffect(() => {
     window.setInterval(() => {
       setTime(new Date());
-    }, 5000);
+    }, 1000);
   }, []);
 
   return (
@@ -51,7 +51,7 @@ const Clock = ({ isMobile }) => {
           <SVG
             className='clock_bg'
             name='clock'
-            height='90'
+            height='100'
             color=''
             viewBox='0 0 152 91'
             g={true}
@@ -144,7 +144,7 @@ const Clock = ({ isMobile }) => {
             width: 1px;
             height: 50px;
             background: black;
-            top: 14%;
+            top: 14.5%;
             left: 50%;
             transform-origin: bottom;
             animation: 1s ease-out 0s 1 fadeIn;
