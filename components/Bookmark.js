@@ -10,12 +10,13 @@ const Bookmark = ({ isVisible }) => (
           <p>
             YinYang is a graphic design studio founded in Seoul on September of
             2020. Our team comprises of graphic designers, Seunghyun and Yubin,
-            and a web developer, Chaewon in YinYang, who have studied Visual
-            Communication Design at Hongik University. We specialize in making
-            an image to be read like text. Specifically, we work on visual
-            identities, 3D modeling, website development, exhibition design and,
-            book design. We are also open to independent and/or commissioned
-            works. For any inquiries, please contact: yinyang.fig@gmail.com
+            and a web designer/developer, Chaewon in YinYang, who have studied
+            Visual Communication Design at Hongik University. We specialize in
+            making an image to be read like text. Specifically, we work on
+            visual identities, 3D modeling, website development, exhibition
+            design and, book design. We are also open to independent and/or
+            commissioned works. For any inquiries, please contact:
+            yinyang.fig@gmail.com
           </p>
           <p>
             <a href='mailto: yinyang.fig@gmail.com'>Write</a>
@@ -85,12 +86,13 @@ const Bookmark = ({ isVisible }) => (
           <p>
             YinYang is a graphic design studio founded in Seoul on September of
             2020. Our team comprises of graphic designers, Seunghyun and Yubin,
-            and a web developer, Chaewon in YinYang, who have studied Visual
-            Communication Design at Hongik University. We specialize in making
-            an image to be read like text. Specifically, we work on visual
-            identities, 3D modeling, website development, exhibition design and,
-            book design. We are also open to independent and/or commissioned
-            works. For any inquiries, please contact: yinyang.fig@gmail.com
+            and a web designer/developer, Chaewon in YinYang, who have studied
+            Visual Communication Design at Hongik University. We specialize in
+            making an image to be read like text. Specifically, we work on
+            visual identities, 3D modeling, website development, exhibition
+            design and, book design. We are also open to independent and/or
+            commissioned works. For any inquiries, please contact:
+            yinyang.fig@gmail.com
             <br></br>
           </p>
           <p>
