@@ -27,6 +27,16 @@ const Bookmark = ({ isVisible }) => (
             >
               Instagram
             </a>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
           </p>
           <p>
             Our works were featured in<br></br>
@@ -50,7 +60,14 @@ const Bookmark = ({ isVisible }) => (
             Tirorisoft<br></br>
             and more<br></br>
           </p>
-          <p>(You can also buy our eggs on y-o-l-k.com)</p>
+          <p>
+            (You can also buy our eggs on y-o-l-k.com)<br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+          </p>
         </div>
       </div>
     ) : (
@@ -234,6 +251,8 @@ const Bookmark = ({ isVisible }) => (
 
           .mobileBackground .text {
             position: absolute;
+            overflow-x: hidden;
+            overflow-y: scroll;
             min-height: 260px;
             height: 40vh;
             max-height: 763px;

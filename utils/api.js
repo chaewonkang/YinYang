@@ -1,10 +1,11 @@
-const client = require("contentful").createClient({
-  space: "mvbcu8iuz2wk",
-  accessToken: "MzPB9943mwqOuE8gqlJu-fkmNhEyltDbsC1dXZwpbjY",
+const client = require('contentful').createClient({
+  space: 'mvbcu8iuz2wk',
+  accessToken: 'MzPB9943mwqOuE8gqlJu-fkmNhEyltDbsC1dXZwpbjY',
 });
 
 export async function getContentfulData() {
   const { items } = await client.getEntries();
+  console.log(items);
 
   const workList = items
     .sort((a, b) => {
