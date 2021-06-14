@@ -196,6 +196,7 @@ const Bookmark = ({ isVisible }) => (
         @media screen and (max-width: 768px) {
           .background {
             display: none;
+            overflow-x: hidden;
           }
 
           .text {
@@ -205,18 +206,19 @@ const Bookmark = ({ isVisible }) => (
             max-width: calc(100vw - 40px);
             top: 0;
             height: 40vh;
-            overflow: auto;
+            overflow-x: hidden;
+            overflow-y: auto;
           }
 
           p {
-            width: calc(100vw - 40px);
-            max-width: calc(100vw - 40px);
+            width: calc(100vw - 50px);
+            max-width: calc(100vw - 50px);
             font-size: 13px;
             word-break: keep-all;
             margin: 0;
             padding: 5px 15px 5px 5px;
             line-height: 15px;
-            overflow: auto;
+            overflow: hidden;
             animation: 2s ease-out 0s 1 fadeIn;
           }
 
@@ -230,6 +232,7 @@ const Bookmark = ({ isVisible }) => (
             width: calc(100vw - 40px);
             max-width: calc(100vw - 40px);
             animation: 1s ease-out 0s 1 fadeIn;
+            overflow-x: hidden;
           }
 
           img {
@@ -245,7 +248,6 @@ const Bookmark = ({ isVisible }) => (
             height: 40vh;
             max-height: 763px;
             top: 0;
-            overflow: auto;
             z-index: 1000000000;
             animation: 1.5s ease-out 0s 1 fadeIn;
           }

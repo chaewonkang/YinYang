@@ -231,17 +231,17 @@ export default function Index({ data }) {
               justify-content: flex-end;
               grid-column: 1 / 3;
               padding-left: 0;
+              overflow-x: hidden;
             }
 
             .content {
               width: calc(100vw - 40px);
               max-width: calc(100vw - 40px);
-              top: 34px;
+              top: 85px;
               bottom: 0;
               position: fixed;
               overflow-y: scroll;
               overflow-x: hidden;
-              padding-top: 50px;
             }
           }
         `}
