@@ -28,16 +28,6 @@ const Bookmark = ({ isVisible }) => (
             >
               Instagram
             </a>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
           </p>
           <p>
             Our works were featured in<br></br>
@@ -62,7 +52,7 @@ const Bookmark = ({ isVisible }) => (
             and more<br></br>
           </p>
           <p>
-            (You can also buy our eggs on y-o-l-k.com)<br></br>
+            You can also buy our eggs on y-o-l-k.com (2021. 7. open)<br></br>
             <br></br>
             <br></br>
             <br></br>
@@ -106,7 +96,6 @@ const Bookmark = ({ isVisible }) => (
               Instagram
             </a>
           </p>
-          <div className='appleBox'></div>
           <p>
             Our works were featured in<br></br>
             It’s Nice That<br></br>
@@ -128,11 +117,8 @@ const Bookmark = ({ isVisible }) => (
             Magazine Them<br></br>
             Tirorisoft<br></br>
             and more<br></br>
-            <br></br>
-            <br></br>
-            <br></br>
           </p>
-          <p>You can also buy our eggs on y-o-l-k.com</p>
+          <p>You can also buy our eggs on y-o-l-k.com (2021. 7. open)</p>
           <div className='appleBox2'></div>
         </div>
       </div>
@@ -188,7 +174,7 @@ const Bookmark = ({ isVisible }) => (
           padding-top: 0.15em;
           position: absolute;
           max-width: 195px;
-          height: 530px;
+          height: 380px;
           overflow: auto;
           top: 0;
         }

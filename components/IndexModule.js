@@ -15,16 +15,32 @@ const IndexModule = ({ id, text }) => {
   return (
     <div className='module_container'>
       <div className='index_module'>
-        <SVG
-          name='book'
-          height='52'
-          color=''
-          viewBox='0 0 30 52'
-          fill={'#fff'}
-          strokeWidth={'0.8px'}
-        />
+        {text ? (
+          <SVG
+            name='book'
+            height='52'
+            color=''
+            viewBox='0 0 30 52'
+            fill={'#fff'}
+            strokeWidth={'0.8px'}
+          />
+        ) : (
+          <SVG
+            name='book'
+            height='52'
+            color=''
+            viewBox='0 0 30 52'
+            fill={'#fff'}
+            strokeWidth={'0.8px'}
+          />
+        )}
       </div>
-      {text ? null : (
+      {text ? (
+        <div className='span'>
+          <span>{text.length == 1 ? null : text.slice(0, 1)}</span>
+          <span>{text.length == 1 ? text.slice(0, 1) : text.slice(1, 2)}</span>
+        </div>
+      ) : (
         <div className='span'>
           <span>{idx.length == 1 ? null : idx.slice(0, 1)}</span>
           <span>{idx.length == 1 ? idx.slice(0, 1) : idx.slice(1, 2)}</span>
@@ -94,10 +110,7 @@ const IndexModule = ({ id, text }) => {
   );
 };
 
-const IndexContainer = ({ list }) => {
-  const words =
-    'In Ancient Chinese philosophy, yin and yang is a concept of dualism, describing how seemingly opposite or contrary forces may actually be complementary, interconnected, and interdependent in the natural world, and how they may give rise to each other as they interrelate to one another.';
-
+const IndexContainer = ({ list, words }) => {
   return (
     <>
       <div className='index_container'>
@@ -106,12 +119,17 @@ const IndexContainer = ({ list }) => {
             <IndexModule key={i + 1} id={i + 1}></IndexModule>
           </a>
         ))}
+        {words.map((item, i) => (
+          <a key={i}>
+            <IndexModule key={i + 1} id={i} text={item}></IndexModule>
+          </a>
+        ))}
       </div>
       <style jsx>
         {`
           .index_container {
             display: grid;
-            grid-template-columns: repeat(${list.length * 2}, 27px);
+            grid-template-columns: repeat(${list.length * 3}, 27px);
             overflow-x: auto;
             height: 56.5px;
             overflow-y: hidden;

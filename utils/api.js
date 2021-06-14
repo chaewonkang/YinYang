@@ -5,7 +5,6 @@ const client = require('contentful').createClient({
 
 export async function getContentfulData() {
   const { items } = await client.getEntries();
-  console.log(items);
 
   const workList = items
     .sort((a, b) => {

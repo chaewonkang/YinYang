@@ -18,11 +18,11 @@ const Clock = ({ isMobile }) => {
             className='clock_bg'
             name='clock'
             height='40'
-            color=''
+            color='none'
             viewBox='0 0 152 91'
             g={true}
             transform={'translate(-1016.7 -141.722)'}
-            fill={'#fff'}
+            fill={'#ff00ff'}
             strokeWidth={'2px'}
           />
           <div className='clock'>
@@ -56,7 +56,7 @@ const Clock = ({ isMobile }) => {
             viewBox='0 0 152 91'
             g={true}
             transform={'translate(-1016.7 -141.722)'}
-            fill={'none'}
+            fill={'#fff'}
           />
           <div className='clock'>
             <div

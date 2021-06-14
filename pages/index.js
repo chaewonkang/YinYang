@@ -16,6 +16,52 @@ export default function Index({ data }) {
   const [readyToClosed, setReadyToClosed] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  var wordsArr = [
+    '31',
+    '32',
+    '33',
+    '34',
+    '35',
+    '36',
+    '37',
+    '38',
+    '39',
+    '40',
+    '41',
+    '42',
+    '43',
+    '44',
+    '45',
+    '46',
+    '47',
+    '48',
+    '49',
+    '50',
+    '51',
+    '52',
+    '53',
+    '54',
+    '55',
+    '56',
+    '57',
+    '58',
+    '59',
+    '60',
+    '61',
+    '62',
+    '63',
+    '64',
+    '65',
+    '66',
+    '67',
+    '68',
+    '69',
+    '70',
+    '71',
+    '72',
+    '73',
+  ];
+
   const handleResize = () => {
     if (window.innerWidth <= 768) setIsMobile(true);
     else setIsMobile(false);
@@ -76,7 +122,7 @@ export default function Index({ data }) {
     <Layout>
       <div className='container'>
         <div className='index'>
-          <IndexModule list={workList}></IndexModule>
+          <IndexModule list={workList} words={wordsArr}></IndexModule>
         </div>
         <div className='content'>
           {workList.map((work, i) => (
@@ -190,7 +236,7 @@ export default function Index({ data }) {
             .content {
               width: calc(100vw - 40px);
               max-width: calc(100vw - 40px);
-              top: 80px;
+              top: 34px;
               bottom: 0;
               position: fixed;
               overflow-y: scroll;
