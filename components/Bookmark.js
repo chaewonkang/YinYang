@@ -231,6 +231,7 @@ const Bookmark = ({ isVisible }) => (
             z-index: 10;
             width: calc(100vw - 40px);
             max-width: calc(100vw - 40px);
+            max-height: 420px;
             animation: 1s ease-out 0s 1 fadeIn;
             overflow-x: hidden;
           }
