@@ -70,10 +70,10 @@ export default function Slider({ items, id, isMobile }) {
         ) : (
           <div className='arrows_and_number_container'>
             <div className='navigate_left_button' onClick={prevSlide}>
-              <img src={LeftArrow} width='152px'></img>
+              <img className='arrow' src={LeftArrow} width='152px'></img>
             </div>
             <div className='navigate_right_button' onClick={nextSlide}>
-              <img src={RightArrow} width='152px'></img>
+              <img className='arrow' src={RightArrow} width='152px'></img>
             </div>
           </div>
         )}
@@ -119,10 +119,12 @@ export default function Slider({ items, id, isMobile }) {
         @keyframes slideIn {
           0% {
             transform: translateY(-100%);
+            -webkit-transform: translate(-100%);
             opacity: 0;
           }
           100% {
             transform: translateY(0);
+            -webkit-transform: translate(0);
             opacity: 1;
           }
         }
@@ -130,7 +132,7 @@ export default function Slider({ items, id, isMobile }) {
         .slider_wrapper {
           position: relative;
           overflow-x: hidden;
-          height: inherit;
+          height: 100%;
           cursor: pointer;
           animation: 1s ease-out 0s 1 fadeIn;
         }
@@ -149,6 +151,7 @@ export default function Slider({ items, id, isMobile }) {
           width: 100%;
           jusitfy-content: center;
           align-items: center;
+          height: 100%;
         }
 
         .img {
@@ -157,6 +160,7 @@ export default function Slider({ items, id, isMobile }) {
           align-self: center;
           object-fit: cover;
           width: inherit;
+          height: 100%;
         }
 
         .arrows_and_number_container {
@@ -170,10 +174,14 @@ export default function Slider({ items, id, isMobile }) {
 
         .navigate_left_button,
         .navigate_right_button {
+          position: absolute;
+          top: 0px;
+          width: 50%;
           height: 100%;
           z-index: 1000;
           display: flex;
           align-items: center;
+          webkit-box-align: center;
           z-index: 10000;
         }
 
@@ -195,9 +203,10 @@ export default function Slider({ items, id, isMobile }) {
           z-index: 10000;
         }
 
-        .navigate_left_button :hover > img,
+        .navigate_left_button:hover > img,
         .navigate_right_button:hover > img {
           display: block;
+          webkit-display: block;
         }
 
         button {
